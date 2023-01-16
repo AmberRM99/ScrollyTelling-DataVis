@@ -961,6 +961,21 @@ Plotly.newPlot('MaternalInfant', data, layout, config).then(function() {
   });
 })
 
+
+function startAnimation() {
+  Plotly.animate('MaternalInfant', frames, {
+    frame: [
+      {duration: 1500},
+      {duration: 500},
+    ],
+    transition: [
+      {duration: 800, easing: 'elastic-in'},
+      {duration: 100, easing: 'cubic-in'},
+    ],
+    mode: 'afterall'
+  })
+}
+
 //   d3.csv('/dashboard.csv', function(err, rows){
 // function filter_and_unpack(rows, key, year) {
 // return rows.filter(row => row <= year).map(row => row[key])
