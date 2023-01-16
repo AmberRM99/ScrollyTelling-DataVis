@@ -110,7 +110,10 @@ html {
 .geolayer{
   transform: scale(1.2)translateX(-84px)translateY(-49px);
 }
-
+/*
+#MotherBaby, .geo{
+  transform: scale(1.2)translateX(-30px)translateY(-12px);
+} */
 section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -614,7 +617,14 @@ var layout = {
       //     type: 'robinson'
       // }
   },
- automargin:true,
+  margin: {
+    l: 50,
+    r: 50,
+    b: 200,
+    t: 200,
+    pad: 1
+  },
+  dragmode: false,
   font: {
   family: 'Roboto Condensed, monospace',
   size: 18,
@@ -1131,9 +1141,18 @@ var layout = {
       bgcolor:"rgba(0,0,0,0)",
       lakecolor:"rgba(0,0,0,0)",
       oceancolor:"rgba(0,0,0,0)",
-      countrycolor: "black" ,
+      // countrycolor: "black" ,
         coastlinecolor:"#485976",
   },
+  margin: {
+    l: 50,
+    r: 50,
+    b: 200,
+    t: 200,
+    pad: 1
+  },
+  dragmode: false,
+  height:800,
   annotations: [
     {
       xref: 'paper',
@@ -1182,7 +1201,6 @@ var layout = {
         color: '#BAE9E4'
         },
   paper_bgcolor:"rgba(0,0,0,0)",
-  height:700,
   showscale: false,
   // width:1000,
   updatemenus: [{
