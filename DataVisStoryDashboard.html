@@ -554,8 +554,8 @@ Plotly.newPlot('polio', data, layout, config);
     var trace3 = {
     x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
     y: [70.6,	69.5,	66.5,	64.3,	61.8,	59.8,	58.9,	58.7,	59.2,	57.2,	56.3,	59.5],
-    fill: 'tozeroy',
-  type: 'scatter',
+  //   fill: 'tozeroy',
+  // type: 'scatter',
     //   marker: {
     //     color: '#D52D1F',
     //     size: 8
@@ -564,7 +564,7 @@ Plotly.newPlot('polio', data, layout, config);
           color: '#D52D1F',
           width: 3
         },
-        name: 'Infected'
+        // name: 'Infected'
     };
 
 
@@ -584,7 +584,7 @@ Plotly.newPlot('polio', data, layout, config);
         name: 'Healthy'
     };
     
-    var data = [healthy, trace3];
+    var data = [ trace3];
     
     var layout = {
       title: 'Malaria infections per 1000 at risk people',
