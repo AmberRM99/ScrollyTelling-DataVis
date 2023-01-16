@@ -801,7 +801,8 @@ Plotly.newPlot('polio', data, layout, config);
         // colorscale:"redor",
         size:5,
         color:colors,
-        opacity:0.8
+        opacity:0.8,
+        showscale: false,
       },
         }
       ], name: num}
@@ -830,7 +831,8 @@ var data = [
     //     colorscale:[[0,"#488699"], [0.4,"#48998C"], 
     // [1, "#F1FCFA"]], 
         color:[filter_and_unpack(rows,"person",1)],
-        opacity:0.8
+        opacity:0.8,
+        showscale: false,
       },
     //   
     //   locations: frames[0].data[0].locations,

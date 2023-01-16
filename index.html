@@ -404,7 +404,7 @@ body {
 </section>
 <section>
   <div id="polio"></div>
-  <div style="display:flex;flex-direction: column;" ><h3>Polio cases went down </h3><p style="font-size: 1.4rem;">But we know cases can drop lower, in 2016 there were a mere 42 cases globally, meaning we were close to eradication</p></div>
+  <div style="display:flex;flex-direction: column;" ><h3>Polio cases went down </h3><p style="font-size: 1.4rem;">But we know cases can drop further, in 2016 there were a mere 42 cases globally, meaning we were close to eradication</p></div>
 </section>
 <section>
   <h3>Fewer people are living with Tuberculosis</h3>
@@ -1086,6 +1086,7 @@ function startAnimationTB() {
             x: 1,
             y: 0.6
         },
+        showscale: false,
         opacity:0.8
       },
         }
@@ -1114,6 +1115,7 @@ var data = [
         color:[filter_and_unpack(rows,"person",1)],
         opacity:0.8
       },
+      showscale: false,
 
 },
 
@@ -1177,6 +1179,7 @@ var layout = {
         },
   paper_bgcolor:"rgba(0,0,0,0)",
   height:700,
+  showscale: false,
   // width:1000,
   updatemenus: [{
         x: 0.1,
