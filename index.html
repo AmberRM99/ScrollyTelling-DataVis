@@ -48,6 +48,7 @@ h3{
 
 h4{
   display: block;
+  font-size: 1.1em;
     margin-block-start: 1.33em;
     margin-block-end: 1.33em;
     margin-inline-start: 0px;
@@ -83,6 +84,17 @@ html {
 .TotalLives .row{
   display: flex;
     flex-direction: row-reverse;
+}
+
+.personCount{
+  transition: opacity 4000ms;
+  will-change: opacity;
+  font-size:1rem;
+  margin:0.25rem;
+}
+
+.personCount.faded-out {
+  opacity: 0;
 }
 
 .peopleChartTxt {
@@ -203,7 +215,6 @@ body {
 .loadDash:hover,
 .loadDash:focus {
   text-decoration: none;
-  color:#FFF;
   box-shadow:
     0 2px 5px rgba(0, 0, 0, 0.5),
     0 1px 0 rgba(255, 255, 255, 0.25) inset,
@@ -400,8 +411,8 @@ body {
   <!-- <div id="chart"></div></h1> -->
   </h3><div id="GHE"></div>
 </section>
-<section>
-  <h3>Health Expenditure Map</h3>
+<section style=" padding-top: 5rem;">
+  <div id="GHEGPD"></div>
 </section>
 <section>
   <h6>The effects of this spending can be seen in some of the most notable diseases of our time</h6>
@@ -514,6 +525,14 @@ body {
   </div>
   
 </section>
+<section id="testing">
+  <div class="container">
+    <div class="row" id="peopleHolder">
+
+    </div>
+  </div>
+
+</section>
 <section style='display:flex; flex-direction:column;'>
   <h1>How many more lives can be saved in the next 10 years?</h1>
   <a class="loadDash" href="/DataVisStoryDashboard.html"> <i class="fas fa-clipboard-medical"></i> Monitor the World's Health </a>
@@ -554,6 +573,21 @@ $(window).on('resize scroll', function() {
         $('#livesFigure').addClass('livesSaved')
     } else{
       $('#livesFigure').removeClass('livesSaved')
+    }
+    if($('#testing').isInViewport()){
+      if($('.personCount').length === 0){
+      let total = 1627182;
+
+      var docFrag = document.createDocumentFragment();
+for(var i = 0; i < total/1000; i++) {
+  let figure = document.createElement('i');
+      figure.classList.add('fas', 'fa-person', 'personCount', 'faded-out')
+  docFrag.appendChild(figure); // Note that this does NOT go to the DOM
+}
+document.getElementById('peopleHolder').appendChild(docFrag); 
+      } else{
+
+      }
     }
 });
 </script>
@@ -607,13 +641,14 @@ var data = [{
 
 var layout = {
   geo: {
+    showframe: false,
       showland: true,
       landcolor:"rgba(0,0,0,0)",  
       bgcolor:"rgba(0,0,0,0)",
       lakecolor:"rgba(0,0,0,0)",
       oceancolor:"rgba(0,0,0,0)",
       countrycolor: "black" ,
-        coastlinecolor:"#ccc",
+        coastlinecolor:"#2A4065",
       // projection: {
       //     type: 'robinson'
       // }
@@ -1137,6 +1172,7 @@ var data = [
 ];
 var layout = {
   geo: {
+    showframe: false,
       showland: true,
       landcolor:"#040F21",  
       bgcolor:"rgba(0,0,0,0)",
@@ -1163,7 +1199,7 @@ var layout = {
     y: 1,
     xanchor: 'right',
     yanchor: 'bottom',
-      text: 'Maternal death',
+      text: 'Maternal deaths',
       showarrow: false,
       font: {
         size: 16,
@@ -1183,7 +1219,7 @@ var layout = {
     xanchor: 'right',
     y: 1,
     yanchor: 'bottom',
-      text: 'Infant death',
+      text: 'Infant deaths',
       showarrow: false,
       font: {
         size: 16,
@@ -1311,6 +1347,76 @@ function startAnimation() {
 //   Plotly.addTraces('myDiv', data);
 // // });
 // })
+</script>
+<script>
+  d3.csv('/healthcareExpense.csv', function(err, rows){
+      function unpack(rows, key) {
+
+          return rows.map(function(row) { return row[key]; });
+      }
+
+       var data = [{
+            type: 'choropleth',
+            locations: unpack(rows, 'CODE'),
+            z: unpack(rows, 'GDP (BILLIONS)'),
+            text: unpack(rows, 'COUNTRY'),
+            colorscale: [
+                [0,'#033D45'],[1,'#BAE9E4']],
+            autocolorscale: false,
+            reversescale: true,
+            marker: {
+                line: {
+                    color: 'rgb(180,180,180)',
+                    width: 0.5
+                }
+            },
+            tick0: 0,
+            zmin: 0,
+            dtick: 1000,
+            colorbar: {
+                autotic: false,
+                ticksuffix: '%',
+            }
+      }];
+
+      var layout = {
+        title: 'Health Expenditure per GPD (%)',
+        margin: {
+    l: 10,
+    r: 10,
+    b: 90,
+    t: 90,
+    pad: 10
+  },
+  dragmode: false,
+  height:800,
+        dragmode: false,
+  font: {
+  family: 'Roboto Condensed, monospace',
+  size: 18,
+  color: '#BAE9E4'
+  },
+        title: 'Healthcare Expenditure (% of GPD)',
+          geo:{
+              showframe: false,
+              showcoastlines: false,
+              projection:{
+                  type: 'mercator'
+              },
+              showland: true,
+              landcolor:"#2A4065",  
+              bgcolor:"rgba(0,0,0,0)",
+              lakecolor:"rgba(0,0,0,0)",
+              oceancolor:"rgba(0,0,0,0)",
+              countrycolor: "black" ,
+              coastlinecolor:"#2A4065",
+
+        
+          },
+          paper_bgcolor:"rgba(0,0,0,0)",
+      };
+      Plotly.newPlot("GHEGPD", data, layout, {showLink: false});
+});
 </script>
 </body>
 </html>
