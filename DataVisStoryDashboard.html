@@ -41,6 +41,16 @@ h1{
   display: inline-block;
 }
 
+
+.population{
+  display: flex;
+    flex-direction: row;
+    width: 100%!important;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
 .chart{
   text-align: center;
   margin-top: 40px;
@@ -79,7 +89,7 @@ h1{
   display: block;
   width: 100%;
 }
-.col, .col-md-5, .col-md-6 ,.col-md-7{
+.col, .col-2, .col-md-5, .col-md-6 ,.col-md-7{
     border: 1px solid #fff;
     border-radius:5px;
     resize:both;
@@ -103,6 +113,11 @@ h1{
 
 .dropdown:hover .dropbtn {
   background-color: #266258;
+}
+
+.source{
+  text-align:center;
+  font-size: 0.8rem;
 }
 
 .heart-rate {
@@ -179,8 +194,14 @@ h1{
     <h6 style="  text-align:center;"><a class="goBack" href="/index.html">The Story So Far...</a></h6>
     <div class="container">
       <div class="row">
-        <div class="col" style="display:flex;flex-direction:column; justify-content:space-around;align-items: center;">
-          <h6>Current world population </h6> <h6>(estimated):</h6> <span id="worldpop" style="font-weight: bold"></span>
+        <div class="row" style="    margin: 0;  flex-direction: column; display: flex;">
+        <div class="col-2 population">
+          <h6>Current world population (estimated):</h6> <h4 id="worldpop" style="font-weight: bold"></h4>
+       
+        </div>
+        <div class="col">
+          <div id="GlobalPop"></div>
+        </div>
         </div>
         <div class="col">
           <div id="avgAge"></div>
@@ -191,12 +212,12 @@ h1{
             <div class="dropdown">
                 <button class="dropbtn">View As</button>
                 <div class="dropdown-content">
-                <button onclick="ViewGHE('GHE', 'GHEPC')">Global Spending</button>
-                <button onclick="ViewGHE('GHEPC', 'GHE')">By Country</button>
+                <button onclick="ViewGHE('GHE', 'GHEGPD')">Global Spending</button>
+                <button onclick="ViewGHE('GHEGPD', 'GHE')">By Country</button>
                 </div>
               </div>
             <div class="chart" id="GHE"></div>
-            <div class="chart" style="display:none;" id="GHEPC"></div>
+            <div class="chart" style="display:none;" id="GHEGPD"></div>
           </div>
           
         </div>
@@ -235,7 +256,7 @@ h1{
         
         </div>
       </div>
-
+      <p class="source">https://www.visualcapitalist.com/the-worlds-population-2020-by-age/</p>
   </section>
 <script>
   window.onload = (event) => {
@@ -1102,7 +1123,7 @@ function startAnimation() {
     var data = [ Age];
     
     var layout = {
-      height: 400,
+      // height: 400,
       title: 'Average Age',
         yaxis: {range: [0, 100]},
       
@@ -1133,6 +1154,128 @@ function startAnimation() {
     var config = {responsive: true}
     
     Plotly.newPlot('avgAge', data, layout, config);
+</script>
+<script>
+  d3.csv('/POPULATION.csv', function(err, rows){
+      function unpack(rows, key) {
+
+          return rows.map(function(row) { console.log(row); return row[key]; });
+      }
+
+       var data = [{
+            type: 'choropleth',
+            locations: unpack(rows, 'CODE'),
+            z: unpack(rows, 'GDP (BILLIONS)'),
+            text: unpack(rows, 'COUNTRY'),
+            colorscale: [
+                [0,'#033D45'],[1,'#BAE9E4']],
+            autocolorscale: false,
+            reversescale: true,
+            marker: {
+                line: {
+                    color: 'rgb(180,180,180)',
+                    width: 0.5
+                }
+            },
+            tick0: 0,
+            zmin: 0,
+            dtick: 1000,
+            colorbar: {
+                autotic: false,
+            }
+      }];
+
+      var layout = {
+        // height:400,
+        dragmode: false,
+  font: {
+  family: 'Roboto Condensed, monospace',
+  size: 18,
+  color: '#BAE9E4'
+  },
+        title: 'Global Population',
+          geo:{
+              showframe: false,
+              showcoastlines: false,
+              projection:{
+                  type: 'mercator'
+              },
+              showland: true,
+      landcolor:"rgba(0,0,0,0)",  
+      bgcolor:"rgba(0,0,0,0)",
+      lakecolor:"rgba(0,0,0,0)",
+      oceancolor:"rgba(0,0,0,0)",
+      countrycolor: "black" ,
+        coastlinecolor:"#ccc",
+        
+          },
+          paper_bgcolor:"rgba(0,0,0,0)",
+      };
+      Plotly.newPlot("GlobalPop", data, layout, {showLink: false});
+});
+</script>
+
+<script>
+  d3.csv('/healthcareExpense.csv', function(err, rows){
+      function unpack(rows, key) {
+
+          return rows.map(function(row) { console.log(row); return row[key]; });
+      }
+
+       var data = [{
+            type: 'choropleth',
+            locations: unpack(rows, 'CODE'),
+            z: unpack(rows, 'GDP (BILLIONS)'),
+            text: unpack(rows, 'COUNTRY'),
+            colorscale: [
+                [0,'rgb(5, 10, 172)'],[0.35,'rgb(40, 60, 190)'],
+                [0.5,'rgb(70, 100, 245)'], [0.6,'rgb(90, 120, 245)'],
+                [0.7,'rgb(106, 137, 247)'],[1,'rgb(220, 220, 220)']],
+            autocolorscale: false,
+            reversescale: true,
+            marker: {
+                line: {
+                    color: 'rgb(180,180,180)',
+                    width: 0.5
+                }
+            },
+            tick0: 0,
+            zmin: 0,
+            dtick: 1000,
+            colorbar: {
+                autotic: false,
+                ticksuffix: '%',
+            }
+      }];
+
+      var layout = {
+        // height:400,
+        dragmode: false,
+  font: {
+  family: 'Roboto Condensed, monospace',
+  size: 18,
+  color: '#BAE9E4'
+  },
+        title: 'Healthcare Expenditure (% of GPD)',
+          geo:{
+              showframe: false,
+              showcoastlines: false,
+              projection:{
+                  type: 'mercator'
+              },
+              showland: true,
+      landcolor:"rgba(0,0,0,0)",  
+      bgcolor:"rgba(0,0,0,0)",
+      lakecolor:"rgba(0,0,0,0)",
+      oceancolor:"rgba(0,0,0,0)",
+      countrycolor: "black" ,
+        coastlinecolor:"#ccc",
+        
+          },
+          paper_bgcolor:"rgba(0,0,0,0)",
+      };
+      Plotly.newPlot("GHEGPD", data, layout, {showLink: false});
+});
 </script>
   </body>
   </html>
