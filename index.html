@@ -404,7 +404,7 @@ body {
 </section>
 <section>
   <div id="polio"></div>
-  <div style="display:flex;flex-direction: column;" ><h3>Polio cases went down </h3><h6>(but we know they can go lower)</h6></div>
+  <div style="display:flex;flex-direction: column;" ><h3>Polio cases went down </h3><p style="font-size: 1.4rem;">But we know cases can drop lower, in 2016 there were a mere 42 cases globally, meaning we were close to eradication</p></div>
 </section>
 <section>
   <h3>Fewer people are living with Tuberculosis</h3>
@@ -698,7 +698,7 @@ Plotly.newPlot('AIDS', [{
   x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
   y: [2399929, 2370918, 2342046, 2314238, 2285709, 2265234, 2243665, 2196714, 2131659, 2042488, ],
   line: {
-    color: '#9FE0D8',
+    color: '#D52D1F',
     width: 3
   },
 }], {
@@ -763,8 +763,8 @@ function startAnimationAids() {
    var trace3 = {
     x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
     y: [70.6,	69.5,	66.5,	64.3,	61.8,	59.8,	58.9,	58.7,	59.2,	57.2,	56.3,	59.5],
-    fill: 'tozeroy',
-  type: 'scatter',
+  //   fill: 'tozeroy',
+  // type: 'scatter',
     //   marker: {
     //     color: '#D52D1F',
     //     size: 8
@@ -773,27 +773,27 @@ function startAnimationAids() {
           color: '#D52D1F',
           width: 3
         },
-        name: 'Infected'
+        // name: 'Infected'
     };
 
 
-    var healthy = {
-    x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
-    y: [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
-    fill: 'tozeroy',
-  type: 'scatter',
-      marker: {
-        color: '#9FE0D8',
-        size: 8
-      },
-      line: {
-          color: '#9FE0D8',
-          width: 3
-        },
-        name: 'Healthy'
-    };
+  //   var healthy = {
+  //   x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020],
+  //   y: [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000],
+  //   fill: 'tozeroy',
+  // type: 'scatter',
+  //     marker: {
+  //       color: '#9FE0D8',
+  //       size: 8
+  //     },
+  //     line: {
+  //         color: '#9FE0D8',
+  //         width: 3
+  //       },
+  //       name: 'Healthy'
+  //   };
     
-    var data = [healthy, trace3];
+    var data = [trace3];
     
     var layout = {
       title: 'Malaria infections per 1000 at risk people',
@@ -838,7 +838,7 @@ function startAnimationAids() {
   y: [1787,	1412,	716	,293,	481,	415,	106,	42,	118,	138,	554	,1253,	649 ],
   
   line: {
-    color: '#9FE0D8',
+    color: '#D52D1F',
     width: 3
   },
 }], {
@@ -928,6 +928,11 @@ function startAnimationPolio() {
       zerolinewidth: 2,
       title: {
       text: 'Spending Per Capita ($)',
+      font: {
+        size: 16,
+        color:'#BAE9E4'
+      },
+      pad: {t: 50, b: 10},
       }
     },
     xaxis: {
@@ -978,7 +983,7 @@ function startAnimationGHE() {
   y: [1417403,	1386717,	1353969	,1321313,	1289369,	1261016,	1236143,	1213057],
   
   line: {
-    color: '#9FE0D8',
+    color: '#D52D1F',
     width: 3
   },
 }], {
