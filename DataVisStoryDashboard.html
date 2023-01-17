@@ -79,7 +79,7 @@ h1{
   display: block;
   width: 100%;
 }
-.col, .col-2, .col-md-5, .col-md-6 ,.col-md-7{
+.col-md, .col-md-2, .col-md-5, .col-md-6 ,.col-md-7{
   background-image:linear-gradient(359deg, #0d1a2f, transparent);
   filter: drop-shadow(0 4px rgb(4, 4, 87));
     border: 1px solid rgba(255, 255, 255, 0.368);
@@ -196,28 +196,28 @@ h1{
 <div class="body" style="display:none;">
 
     <h1 >World Health Monitor</h1>
-<img style="margin: 0 0 2rem;" width="300" height="80" src="WGS-summit-logo.png">
+<img style="margin: 0 0 2rem;" width="300" height="80" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
     <h6 style="  text-align:center;"><a class="goBack" href="/index.html">The Story So Far...</a></h6>
 </div>
 <div class="container" >
     <div class="row">
-        <div class="row col" style="margin: 0;  flex-direction: column; display: flex;">
-            <div class="col-1 population" style="max-width:unset;"> 
+        <div class="row col-md" style="margin: 0;  flex-direction: column; display: flex;">
+            <div class="col-md-1 population" style="max-width:unset;"> 
             <h6>Current world population (estimated): </h6> <h4 id="worldpop" style="padding-left:1rem;font-weight: bold"></h4>
         
             </div>
-            <div class="col" style="overflow:hidden;filter:none;background-image:none;border:none;">
+            <div class="col-md" style="overflow:hidden;filter:none;background-image:none;border:none;">
             <div id="GlobalPop"></div>
             </div>
         </div>
-        <div class="col" style="margin: 0rem 1rem;">
+        <div class="col-md" style="margin: 0rem 1rem;">
         <div id="avgAge"></div>
     </div>
     </div>
 
     <div class="row">
-        <div class="col" id="col-for-ghe" >
+        <div class="col-md" id="col-for-ghe" >
           <div class="dropdown">
               <button class="dropbtn">View As</button>
               <div class="dropdown-content">
@@ -235,13 +235,13 @@ h1{
           <div class="col-md-7">
             <div class="chart" id="TB"></div>
           </div>
-          <div class="col">
+          <div class="col-md">
             <div class="chart" id="polio"></div>
           </div>
         </div>
 
     <div class="row" style="justify-content: space-evenly;">
-          <div class="col">
+          <div class="col-md">
               <div class="chart" id="malaria"></div>
           </div>
           <div class="col-md-7">
@@ -250,7 +250,7 @@ h1{
      </div>
 
      <div class="row">
-        <div class="col">
+        <div class="col-md">
           <div class="dropdown">
             <button class="dropbtn">Compare this data with</button>
             <div class="dropdown-content">
