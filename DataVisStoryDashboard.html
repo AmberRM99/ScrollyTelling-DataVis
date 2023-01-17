@@ -41,14 +41,14 @@ h1{
   display: inline-block;
 }
 
-.chart{
+/* .chart{
   text-align: center;
   margin-top: 40px;
   max-width: 100%;
-}
-.geolayer{
+} */
+/* .geolayer{
   transform: scale(1.2)translateX(-84px)translateY(-49px);
-}
+} */
 
 .dropdown-content {
   display: none;
@@ -84,24 +84,27 @@ h1{
   filter: drop-shadow(0 4px rgb(4, 4, 87));
     border: 1px solid rgba(255, 255, 255, 0.368);
     border-radius:5px;
-    /* resize:both; */
      overflow: auto;
-     /* width:auto;
-     max-width: 100%; */
-    margin: auto;
-      /* border: 1px solid; */
-       /* height:250px; */
+    margin: 1rem; 
 }
 
-.row{
+/* .row{
     margin: 13px 0;
+} */
+@media (min-width: 1200px){
+.container {
+    max-width: 1275px;
+}
+}
+.body{
+  margin: 2rem 0;
+  text-align:center;
 }
 
 .population{
   display: flex;
     flex-direction: row;
-    /* width: 100%!important;
-    justify-content: space-evenly; */
+    justify-content: center;
     align-items: center;
 }
 
@@ -122,10 +125,12 @@ h1{
 
 .heart-rate {
   display:flex;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: relative;
   margin: auto;
+  overflow:hidden;
+  z-index:99;
 }
 
 .fade-in {
@@ -188,18 +193,21 @@ h1{
         <div class="fade-out"></div>
       </div>
 </section>
-<div class="body" style="display:none;text-align:center;">
-    <h1 style="position:sticky">World Health Monitor</h1>
+<div class="body" style="display:none;">
+
+    <h1 >World Health Monitor</h1>
+<img style="margin: 0 0 2rem;" width="300" height="80" src="WGS-summit-logo.png">
+
     <h6 style="  text-align:center;"><a class="goBack" href="/index.html">The Story So Far...</a></h6>
 </div>
-<div class="container">
+<div class="container" >
     <div class="row">
         <div class="row col" style="margin: 0;  flex-direction: column; display: flex;">
             <div class="col-1 population" style="max-width:unset;"> 
             <h6>Current world population (estimated): </h6> <h4 id="worldpop" style="padding-left:1rem;font-weight: bold"></h4>
         
             </div>
-            <div class="col" style="filter:none;background-image:none;border:none;">
+            <div class="col" style="overflow:hidden;filter:none;background-image:none;border:none;">
             <div id="GlobalPop"></div>
             </div>
         </div>
@@ -209,7 +217,7 @@ h1{
     </div>
 
     <div class="row">
-        <div class="col">
+        <div class="col" id="col-for-ghe" >
           <div class="dropdown">
               <button class="dropbtn">View As</button>
               <div class="dropdown-content">
@@ -218,7 +226,7 @@ h1{
               </div>
             </div>
           <div class="chart" id="GHE"></div>
-          <div class="chart" style="display:none;" id="GHEGPD"></div>
+          <div class="chart" style="display:none;margin:auto;" id="GHEGPD"></div>
         </div>
         
       </div>
@@ -262,13 +270,21 @@ h1{
     window.onload = (event) => {
     $('.loading').delay( 800 ).fadeOut()
     $('.body').delay( 800 ).fadeIn()
+    //  $('.container').delay( 800 ).css
     maind()
   };
   
   
   function ViewGHE(chosenView, rejectedView){
+    if(chosenView === 'GHEGPD'){
+    console.log('map')
+    document.getElementById('col-for-ghe').style.display ="flex";
+  } else{
+    document.getElementById('col-for-ghe').style.display ="unset";
+  }
   document.getElementById(chosenView).style.display = "block"
   document.getElementById(rejectedView).style.display = "none"
+ 
   }
   </script>
   
@@ -325,6 +341,7 @@ h1{
     },
       geo: {
           showland: true,
+          showframe: false,
           landcolor:"rgba(0,0,0,0)",  
           bgcolor:"rgba(0,0,0,0)",
           lakecolor:"rgba(0,0,0,0)",
@@ -730,6 +747,7 @@ h1{
       xref: 'paper',
     },
       geo: {
+        showframe: false,
           showland: true,
           landcolor:"rgba(0,0,0,0)",  
           bgcolor:"rgba(0,0,0,0)",
@@ -922,6 +940,7 @@ h1{
         // // projection: {
         // //     type: 'robinson'
         // // }
+        showframe: false,
         showland: true,
         landcolor:"#040F21",  
         bgcolor:"rgba(0,0,0,0)",
@@ -937,16 +956,16 @@ h1{
     paper_bgcolor:"rgba(0,0,0,0)",
     // height:800,
     //  width:1000,
-    autosize: false,
-    width: 1000,
-    height: 500,
-    margin: {
-      l: 50,
-      r: 50,
-      b: 100,
-      t: 100,
-      pad: 4
-    },
+    // autosize: false,
+    // width: 1000,
+    // height: 500,
+    // margin: {
+    //   l: 50,
+    //   r: 50,
+    //   b: 100,
+    //   t: 100,
+    //   pad: 4
+    // },
       updatemenus: [{
         x: 0.1,
         y: 0,
@@ -1217,64 +1236,72 @@ h1{
   </script>
   
   <script>
-    d3.csv('/healthcareExpense.csv', function(err, rows){
-        function unpack(rows, key) {
-  
-            return rows.map(function(row) { console.log(row); return row[key]; });
-        }
-  
-         var data = [{
-              type: 'choropleth',
-              locations: unpack(rows, 'CODE'),
-              z: unpack(rows, 'GDP (BILLIONS)'),
-              text: unpack(rows, 'COUNTRY'),
-              colorscale: [
-                  [0,'rgb(5, 10, 172)'],[0.35,'rgb(40, 60, 190)'],
-                  [0.5,'rgb(70, 100, 245)'], [0.6,'rgb(90, 120, 245)'],
-                  [0.7,'rgb(106, 137, 247)'],[1,'rgb(220, 220, 220)']],
-              autocolorscale: false,
-              reversescale: true,
-              marker: {
-                  line: {
-                      color: 'rgb(180,180,180)',
-                      width: 0.5
-                  }
-              },
-              tick0: 0,
-              zmin: 0,
-              dtick: 1000,
-              colorbar: {
-                  autotic: false,
-                  ticksuffix: '%',
-              }
-        }];
-  
-        var layout = {
-          // height:400,
-          dragmode: false,
-    font: {
-    family: 'Roboto Condensed, monospace',
-    size: 18,
-    color: '#BAE9E4'
-    },
-          title: 'Healthcare Expenditure (% of GPD)',
-            geo:{
-                showframe: false,
-                showcoastlines: false,
-                projection:{
-                    type: 'mercator'
-                },
-                showland: true,
-        landcolor:"rgba(0,0,0,0)",  
-        bgcolor:"rgba(0,0,0,0)",
-        lakecolor:"rgba(0,0,0,0)",
-        oceancolor:"rgba(0,0,0,0)",
-        countrycolor: "black" ,
-          coastlinecolor:"#ccc",
-          
+   d3.csv('/healthcareExpense.csv', function(err, rows){
+      function unpack(rows, key) {
+
+          return rows.map(function(row) { return row[key]; });
+      }
+
+       var data = [{
+            type: 'choropleth',
+            locations: unpack(rows, 'CODE'),
+            z: unpack(rows, 'GDP (BILLIONS)'),
+            text: unpack(rows, 'COUNTRY'),
+            colorscale: [
+            [0,'#BAE9E4'],[1,'#0C3035']],
+            autocolorscale: false,
+            reversescale: true,
+            marker: {
+                line: {
+                    color: 'rgb(180,180,180)',
+                    width: 0.5
+                }
             },
-            paper_bgcolor:"rgba(0,0,0,0)",
-        };
+            tick0: 0,
+            zmin: 0,
+            dtick: 1000,
+            colorbar: {
+                autotic: false,
+                ticksuffix: '%',
+            }
+      }];
+
+      var layout = {
+        title: 'Health Expenditure per GPD (%)',
+  //       margin: {
+  //   l: 0,
+  //   r: 0,
+  //   b: 0,
+  //   t: 50,
+  //   pad: 10
+  // },
+  dragmode: false,
+  // height:650,
+        // dragmode: false,
+  font: {
+  family: 'Roboto Condensed, monospace',
+  size: 18,
+  color: '#BAE9E4'
+  },
+        title: 'Healthcare Expenditure (% of GPD)',
+          geo:{
+              showframe: false,
+              showcoastlines: false,
+              projection:{
+                  type: 'mercator'
+              },
+              showland: true,
+              landcolor:"#2A4065",  
+              bgcolor:"rgba(0,0,0,0)",
+              lakecolor:"rgba(0,0,0,0)",
+              oceancolor:"rgba(0,0,0,0)",
+              countrycolor: "black" ,
+              coastlinecolor:"#2A4065",
+
+        
+          },
+          paper_bgcolor:"rgba(0,0,0,0)",
+      };
         Plotly.newPlot("GHEGPD", data, layout, {showLink: false});
   });
   </script>
