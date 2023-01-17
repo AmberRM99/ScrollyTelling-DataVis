@@ -617,15 +617,19 @@ $(window).on('resize scroll', function() {
       let total = 1232406;
      console.log(total/10000)
       var docFrag = document.createDocumentFragment();
+      var foo = [];
+
+for (var i = 1; i <= 123; i++) {
+   foo.push(i);
+}
+
 for(var i = 0; i < total/10000; i++) {
-
-
   let figure = document.createElement('i');
       figure.classList.add('fas', 'fa-person', 'personCount')
       if(i < 1){
         figure.style.animationDelay= '0s';
       } else{
-        figure.style.animationDelay= i/10+'s';
+        figure.style.animationDelay= foo[i]/10+'s';
       }
   docFrag.appendChild(figure); // Note that this does NOT go to the DOM
 }
