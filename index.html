@@ -214,6 +214,7 @@ body {
 
 .loadDash:hover,
 .loadDash:focus {
+  color:white;
   text-decoration: none;
   box-shadow:
     0 2px 5px rgba(0, 0, 0, 0.5),
@@ -411,11 +412,12 @@ body {
   <!-- <div id="chart"></div></h1> -->
   </h3><div id="GHE"></div>
 </section>
-<section style=" padding-top: 5rem;">
+<section style=" padding-top: 5rem;display:flex; flex-direction: column;">
   <div id="GHEGPD"></div>
+  <p class="citation">*figures for 2021 OR most recently published data (last 5 years)</p>
 </section>
 <section>
-  <h6>The effects of this spending can be seen in some of the most notable diseases of our time</h6>
+  <h6 style="text-align:center;width:80%;">The effects of this spending can be seen in some of the most notable diseases of our time</h6>
 </section>
 <section>
   <h3>The total number of AIDS cases dropped</h3>
@@ -438,7 +440,7 @@ body {
   <div id='myDiv'></div>
 </section>
 <section style="display:flex; flex-direction:column;">
-  <h3 style="text-align:center;">More pregnancies end in a healthy baby and mother now than in 2009</h3>
+  <h3 style="text-align:center;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
   <!-- <img class="maskB" alt="Baby Pram" src="/baby.svg"> -->
   <div class="container" style="display:flex; flex-direction:row; justify-content:space-around;">
 <div class="row" style="display: flex;">
@@ -525,14 +527,14 @@ body {
   </div>
   
 </section>
-<section id="testing">
+<!-- <section id="testing">
   <div class="container">
     <div class="row" id="peopleHolder">
 
     </div>
   </div>
 
-</section>
+</section> -->
 <section style='display:flex; flex-direction:column;'>
   <h1>How many more lives can be saved in the next 10 years?</h1>
   <a class="loadDash" href="/DataVisStoryDashboard.html"> <i class="fas fa-clipboard-medical"></i> Monitor the World's Health </a>
@@ -1361,7 +1363,7 @@ function startAnimation() {
             z: unpack(rows, 'GDP (BILLIONS)'),
             text: unpack(rows, 'COUNTRY'),
             colorscale: [
-                [0,'#033D45'],[1,'#BAE9E4']],
+            [0,'#BAE9E4'],[1,'#0C3035']],
             autocolorscale: false,
             reversescale: true,
             marker: {
@@ -1382,14 +1384,14 @@ function startAnimation() {
       var layout = {
         title: 'Health Expenditure per GPD (%)',
         margin: {
-    l: 10,
-    r: 10,
-    b: 90,
-    t: 90,
+    l: 0,
+    r: 0,
+    b: 0,
+    t: 50,
     pad: 10
   },
   dragmode: false,
-  height:800,
+  height:650,
         dragmode: false,
   font: {
   family: 'Roboto Condensed, monospace',
