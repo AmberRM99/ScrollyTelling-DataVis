@@ -85,23 +85,11 @@ html {
   display: flex;
     flex-direction: row-reverse;
 }
-
-.personCount{
-  transition: opacity 4000ms;
-  will-change: opacity;
-  font-size:1rem;
-  margin:0.25rem;
-}
-
-.personCount.faded-out {
-  opacity: 0;
-}
-
 .peopleChartTxt {
   font-size: 1.5rem;
-      display: flex;
-    height: 8rem;
-    align-items: center;
+  display: flex;
+  height: 8rem;
+  align-items: center;
 }
 
 .col-8{
@@ -272,10 +260,36 @@ body {
     margin-right: 1.5rem;
 }
 
+.personCount{
+  transition: opacity 4000ms;
+  will-change: opacity;
+  color:#15294A;
+  font-size: 2.8rem;
+    margin: 1.25rem;
+  animation-name: people;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes people {
+  0% {color:#15294A}
+  100% {color: white}
+}
+
+.peopleImg{
+  opacity: 0;
+}
+
+@keyframes IMGpeople {
+  0% {opacity:0}
+  100% {opacity: 1}
+}
+
 .livesSaved::after {
-  content: '1,627,'counter(count);
+  content: '1,232,'counter(count);
   animation: counter 3s linear 1 alternate;
-  counter-reset: count 182;
+  counter-reset: count 402;
 }
 
 .babyStat, .motherStat{
@@ -295,37 +309,37 @@ body {
 
 @keyframes counter {
   0% {
-    counter-set: count 71;
+    counter-set: count 330;
   }
   10% {
-    counter-set: count 83;
+    counter-set: count 338;
   }
   20% {
-    counter-set: count 96;
+    counter-set: count 346;
   }
   30% {
-    counter-set: count 107;
+    counter-set: count 352;
   }
   40% {
-    counter-set: count 111;
+    counter-set: count 359;
   }
   50% {
-    counter-set: count 118;
+    counter-set: count 367;
   }
   60% {
-    counter-set: count 129;
+    counter-set: count 374;
   }
   70% {
-    counter-set: count 143;
+    counter-set: count 385;
   }
   80% {
-    counter-set: count 154;
+    counter-set: count 391;
   }
   90% {
-    counter-set: count 168;
+    counter-set: count 398;
   }
   100% {
-    counter-set: count 182;
+    counter-set: count 406;
   }
 }
 
@@ -404,8 +418,10 @@ body {
   <path fill-rule="evenodd" clip-rule="evenodd" d="M3.5,2H2.7C3,1.8,3.3,1.5,3.3,1.1c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1c0,0.4,0.2,0.7,0.6,0.9H1.1C0.7,2,0.4,2.3,0.4,2.6v1.9c0,0.3,0.3,0.6,0.6,0.6h0.2c0,0,0,0.1,0,0.1v1.9c0,0.3,0.2,0.6,0.3,0.6h1.3c0.2,0,0.3-0.3,0.3-0.6V5.3c0,0,0-0.1,0-0.1h0.2c0.3,0,0.6-0.3,0.6-0.6V2.6C4.1,2.3,3.8,2,3.5,2z" fill="#FFF"/>
   </svg> -->
 
-<section>
-  <h1>Global Healthcare has come a long way in 14 years</h1>
+<section style="display:flex; flex-direction:column;">
+  <h1>Global Healthcare has come a long way in 10 years</h1>
+  <img width="550" height="150" src="WGS-summit-logo.png">
+
 </section>
 <section>
   <h3>Global healthcare spending has increased
@@ -462,79 +478,81 @@ body {
 <div id="MotherBaby"></div>
 </section>
 <section  style='display:flex; flex-direction:column;'>
-  <span style="font-size:8rem;" class="fa-sharp fa-solid fa-person"></span>
-  <h6>An estimated <span style="font-size:0.8rem; position:relative; bottom:1.5rem;">*</span> <span id="livesFigure"></span>  lives were saved through medical advancements</h6>
-  <p class='citation'> *Estimate based on 10 year difference in Tuberculosis, Malaria, Tropical Disease and HIV/AIDS deaths</p>
+ <span style="font-size:8rem;" class="fa-sharp fa-solid fa-person"></span>
+  <h6 >An estimated <span style="font-size:0.8rem; position:relative; bottom:1.5rem;">*</span> <span id="livesFigure"></span>  lives were saved through medical advancements</h6>
+  <p  class='citation'> *Estimate based on 10 year difference in Tuberculosis, Malaria and HIV/AIDS deaths</p>
+
+</div>
+</section>
+<section id="testing" style="display:flex; flex-direction:column;">
+  <h6 style="margin:1rem;"> One person represents 10,000 lives saved</h6>
+  <div style="display: flex;
+  flex-wrap: wrap;"  id="peopleHolder">
+  
+</div>
 </section>
 <!--3284078-->
-<section class="TotalLives">
+<section class="TotalLives" id="totalLives">
 
   <div class="container">
     <div class="row" >
       <div class="col-8">
-        <div class="blocker" style="background: linear-gradient(90deg, transparent 53%, #15294a 55%)"></div>
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
+        <div class="blocker" style="background: linear-gradient(90deg, transparent 54.5%, #15294a 55%)"></div>
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">  
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
       </div>
-      <div class="col peopleChartTxt"> 25,7596 less lives lost to Malaria
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-8">
-        <div class="blocker" style="background: linear-gradient(90deg, transparent 85%, #15294a 87%);"></div>
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-      </div>
-      <div class="col peopleChartTxt">
-        48,0000 less lives lost to HIV/AIDS
+      <div class="col peopleChartTxt"> 257,596 less lives lost to Malaria
       </div>
     </div>
     <div class="row">
       <div class="col-8">
-        <div class="blocker" style="background: linear-gradient(90deg, transparent 87%, #15294a 89%);"></div>
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
-        <img height="60" src="/icons8-standing-man-100.png">
+        <div class="blocker" style="background: linear-gradient(90deg, transparent 96.5%, #15294a 98%);"></div>
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
       </div>
       <div class="col peopleChartTxt">
-        49,4810 less lives lost to TB
+        480,000 less lives lost to HIV/AIDS
       </div>
     </div>
-    <p class="citation">One person per 5000 estimated lives saved</p>
+    <div class="row">
+      <div class="col-8">
+        <div class="blocker" style="background: linear-gradient(90deg, transparent 97%, #15294a 99%);"></div>
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+        <img class="peopleImg" height="60" src="/icons8-standing-man-100.png">
+      </div>
+      <div class="col peopleChartTxt">
+        494,810 less lives lost to TB
+      </div>
+    </div>
+    <p class="citation">One person per 50000 estimated lives saved</p>
   </div>
   
 </section>
-<!-- <section id="testing">
-  <div class="container">
-    <div class="row" id="peopleHolder">
 
-    </div>
-  </div>
-
-</section> -->
 <section style='display:flex; flex-direction:column;'>
   <h1>How many more lives can be saved in the next 10 years?</h1>
   <a class="loadDash" href="/DataVisStoryDashboard.html"> <i class="fas fa-clipboard-medical"></i> Monitor the World's Health </a>
@@ -576,21 +594,45 @@ $(window).on('resize scroll', function() {
     } else{
       $('#livesFigure').removeClass('livesSaved')
     }
-    if($('#testing').isInViewport()){
-      if($('.personCount').length === 0){
-      let total = 1627182;
+    if($('#totalLives').isInViewport()){
+      let img = document.getElementsByClassName('peopleImg');
+      for(let i=0; i<img.length; i++){
+        // console.log(img[i])
+        // img[i].style.opacity = 0;
+        img[i].style.animationName = 'IMGpeople'
+        img[i].style.animationDuration = '0.5s'
+        img[i].style.animationIterationCount = 1;
+        img[i].style.animationFillMode = 'forwards'
+        img[i].style.animationDelay = i/4+'s'
+      }
+  //     animation-name: people;
+  // animation-duration: 0.5s;
+  // animation-iteration-count: 1;
+  // animation-fill-mode: forwards;
 
+    }
+    if($('#peopleHolder').isInViewport()){
+      if($('.personCount').length === 0){
+      let total = 1232406;
+     console.log(total/10000)
       var docFrag = document.createDocumentFragment();
-for(var i = 0; i < total/1000; i++) {
+for(var i = 0; i < total/10000; i++) {
+
+
   let figure = document.createElement('i');
-      figure.classList.add('fas', 'fa-person', 'personCount', 'faded-out')
+      figure.classList.add('fas', 'fa-person', 'personCount')
+      if(i < 1){
+        figure.style.animationDelay= '0s';
+      } else{
+        figure.style.animationDelay= i/10+'s';
+      }
   docFrag.appendChild(figure); // Note that this does NOT go to the DOM
 }
 document.getElementById('peopleHolder').appendChild(docFrag); 
-      } else{
-
-      }
     }
+  } else{
+        $('.personCount').remove();
+      }
 });
 </script>
 
