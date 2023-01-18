@@ -137,7 +137,7 @@ body {
   font-size: 1.8rem;
   padding:10px;
   text-decoration: none;
-  transition:all 0.5s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .glassButton:hover{
@@ -446,8 +446,15 @@ body {
     font-size: 0.48em;
   }
 
+  .row{
+    flex-direction: column;
+  }
   section{
-    width:113vw
+    width:113vw;
+    justify-content: space-evenly;
+  }
+  .MotherInfantLoss{
+    width:100%;
   }
 }
 
@@ -466,10 +473,16 @@ body {
   <img style="position:absolute; top:0;left:70%;" width="400" height="100" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
 </section>
-<section>
+<section class="container">
+  <div class="row">
+    <div class="col-md">
   <h3>Global healthcare spending has increased
+    </h3>
+  </div>
+  <div class="col-md">
   <!-- <div id="chart"></div></h1> -->
-  </h3><div id="GHE"></div>
+  <div id="GHE"></div>
+  </div>
 </section>
 <section style=" padding-top: 5rem;display:flex; flex-direction: column;">
   <div id="GHEGPD"></div>
@@ -484,60 +497,81 @@ body {
   <img style="top:60%;left: -10%;" width="40%" height="40%" src="/needle.svg">
   </div>
   </section>
-<section>
-  <div class="AboutChart "  >
+<section class="container">
+  <div class="row">
+  <div class="AboutChart col-md"  >
   <h3>The total number of AIDS cases dropped</h3>
   <p >There is still no cure for HIV and AIDS, but decreasing cases numbers offers hope that greater awareness and access to screening will continue to save lives</p>
 </div>
+<div class="col-md">
   <div id="AIDS"></div>
+  </div>
+  </div>
 </section>
-<section>
+<section class="container">
+  <div class="row">
+  <div class="col-md">
   <div id="polio"></div>
-  <div class="AboutChart "   ><h3>Polio cases went down </h3><p >But we know cases can drop further, in 2016 there were a mere 42 cases globally, meaning we were close to eradication</p></div>
+  </div>
+  <div class="AboutChart col-md"   ><h3>Polio cases went down </h3><p >But we know cases can drop further, in 2016 there were a mere 42 cases globally, meaning we were close to eradication</p></div>
+</div>
 </section>
-<section>
-  <div class="AboutChart "  >
+<section class="container">
+  <div class="row">
+  <div class="AboutChart col-md" >
   <h3>Fewer people are living with Tuberculosis</h3>
   <p > One of the United Nations Sustainable Development Goals (SDGs) is to eradicate Tuberculosis by 2030</p>
 </div>
+<div class="col-md">
   <div id="TB"></div>
+  </div>
+  </div>
 </section>
-<section>
+<section class="container">
+  <div class="row">
+  <div class="col-md">
   <div id="malaria"></div>
-  <div class="AboutChart "  >
+</div>
+  <div class="AboutChart col-md" >
     <h3>Less at risk people are catching Malaria</h3>
   <p > Malaria is classed as a treatable disease thanks to drug advancements, but its deadly reputation spawns from unequal access to lifesaving medications in impoverished areas.</p>
   </div>
- 
+ </div>
 </section>
-<section>
-  <div class="AboutChart" >
+<section class="container">
+  <div class="row">
+  <div class="AboutChart col-md" >
   <h3>More than half the world has eradicated Malaria</h3>
   <p style="font-size:1rem;">Eradication is defined as 3+ years without a single case</p>
   </div>
-  <div id='myDiv'></div>
+  <div class="col-md" id='myDiv'></div>
+  </div>
 </section>
 <section style="display:flex; flex-direction:column;">
   <h3 style="text-align:center;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
   <!-- <img class="maskB" alt="Baby Pram" src="/baby.svg"> -->
   <div class="container" style="display:flex; flex-direction:row; justify-content:space-around;">
 <div class="row" style="display: flex;">
-  <div class="col maskB babyPercent" > </div>
+  <div class=" maskB babyPercent" > </div>
   <div class="col"><span id="BMortality"></span> <p style="font-size:1rem;">Infant Mortality Rate</p></div>
 </div>
 <div class="row" style="display: flex;">
-  <div class="maskM motherPercent"></div>
+  <div class=" maskM motherPercent"></div>
   <div class="col"><span id="MMortality"></span> <p style="font-size:1rem;">Maternal deaths</p></div>
 </div>
   </div>
   <!-- <p class="citation">*https://data.worldbank.org/indicator/SH.STA.MMRT</p> -->
 </section>
-<section>
-  <div class="MotherInfantLoss">
+<section class="container">
+  <div class="row">
+  <div class="MotherInfantLoss col-md">
   <h4>But there's still more work to be done</h4>
 <p style="font-size:1.3rem;">Every hour, hundreds of families are devastated by the loss of an expectant mother or baby during childbirth</p>
 </div>
+<div class="col-md">
 <div id="MotherBaby"></div>
+</div>
+</div>
 </section>
 <section  style='display:flex; flex-direction:column;'>
  <span style="font-size:8rem;" class="fa-sharp fa-solid fa-person"></span>
