@@ -129,7 +129,7 @@ body {
 .glassButton{
   background: #BAE9E4;
   border: 2px solid #2ca08ecf;
-  box-shadow: 0px 4px 4px #031025;
+  box-shadow: 0px 6px 5px #03122a;
   border-radius: 15px;
   color: #0B7564;
   width:26%;
@@ -192,6 +192,17 @@ body {
 .motherPercent{
   width: 15rem;
   background:linear-gradient(0deg,#D52D1F 95%,#D52D1F4a 97%)
+}
+
+.imagesHolder{
+  width:100vw;
+  height:100%;
+  position:relative;
+}
+
+.imagesHolder img{
+  position:absolute;
+  opacity:0.8
 }
 
 /* .loadDash {
@@ -434,6 +445,10 @@ body {
   h6{
     font-size: 0.48em;
   }
+
+  section{
+    width:113vw
+  }
 }
 
 @media screen and (max-width:760px){
@@ -461,12 +476,14 @@ body {
   <p class="citation">*figures for 2021 OR most recently published data (last 5 years)</p>
 </section>
 <section style="overflow:hidden;">
-  <img style="position:absolute;top: 142rem; left:60%;opacity:0.8;" width="40%" height="40%" src="/thermom.svg">
-  <img style="position:absolute;top: 170rem; left:60%;opacity:0.7;" width="40%" height="40%" src="/bottle.svg">
-  <img style="position:absolute;top: 142rem; left:0;opacity:0.7;" width="40%" height="40%" src="/plaster.svg">
-  <img style="position:absolute;top: 170rem;left:0;opacity:0.8;" width="40%" height="40%" src="/needle.svg">
-  <h6 style="text-align:center;width:80%;">The effects of this spending can be seen in some of the most notable diseases of our time</h6>
-</section>
+  <div class="imagesHolder">
+  <img style="left:70%;top:0;" width="40%" height="40%" src="/thermom.svg">
+  <img style="left:70%;top:60%;opacity:0.7;" width="40%" height="40%" src="/bottle.svg">
+  <h6 style="text-align: center;width: 80%;position: relative;top: 30%;left: 10%;">The effects of this spending can be seen in some of the most notable diseases of our time</h6>
+  <img style="top:0;left: -10%;opacity:0.7;" width="40%" height="40%" src="/plaster.svg">
+  <img style="top:60%;left: -10%;" width="40%" height="40%" src="/needle.svg">
+  </div>
+  </section>
 <section>
   <div class="AboutChart "  >
   <h3>The total number of AIDS cases dropped</h3>
