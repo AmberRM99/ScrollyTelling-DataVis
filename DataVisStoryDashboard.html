@@ -520,6 +520,29 @@ h1{
               gridcolor: "rgba(0,0,0,0)",
               gridwidth: 2,      
             },
+            annotations: [
+    {
+      x: 2016,
+      y: 42,
+      xref: 'x',
+      yref: 'y',
+      text: 'Only 42 cases in 2016',
+      showarrow: true,
+      arrowhead: 7,
+      ax: 0,
+      ay: -40,
+      font:{
+        color: '#9FE0D8',
+      },
+      align: 'center',
+      arrowhead: 2,
+      arrowsize: 1,
+      arrowwidth: 2,
+      arrowcolor: '#9FE0D8',
+      ax: 20,
+      ay: -90,
+    }
+  ],
             automargin:true,
             font: {
           family: 'Roboto Condensed, monospace',
@@ -950,6 +973,49 @@ h1{
         countrycolor: "black" ,
           coastlinecolor:"#425566",
     },
+    annotations: [
+    {
+      xref: 'paper',
+    yref: 'paper',
+    x: 0.7,
+    xanchor: 'right',
+    y: 1,
+    xanchor: 'right',
+    yanchor: 'bottom',
+      text: 'Maternal deaths',
+      showarrow: false,
+      font: {
+        size: 16,
+        color: '#ffffff'
+      },
+      align: 'center',
+      bordercolor: '#D52D1F',
+      borderwidth: 2,
+      borderpad: 4,
+      bgcolor: '#D52D1F',
+      opacity: 0.8
+    },
+    {
+      xref: 'paper',
+    yref: 'paper',
+    x: 0.3,
+    xanchor: 'right',
+    y: 1,
+    yanchor: 'bottom',
+      text: 'Infant deaths',
+      showarrow: false,
+      font: {
+        size: 16,
+        color: '#0d2c33'
+      },
+      align: 'center',
+      bordercolor: '#42DBFD',
+      borderwidth: 2,
+      borderpad: 4,
+      bgcolor: '#42DBFD',
+      opacity: 0.8
+    }
+  ],
     font: {
           family: 'Roboto Condensed, monospace',
           color: '#BAE9E4'
