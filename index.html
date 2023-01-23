@@ -390,7 +390,8 @@ var layout = {
   },
 
   paper_bgcolor:"rgba(0,0,0,0)",
-  height:800,
+  height:700,
+  width:750,
     updatemenus: [{
       x: 0.1,
       y: 0,
@@ -474,6 +475,7 @@ Plotly.newPlot('AIDS', [{
     width: 3
   },
 }], {
+  width: 600,
   xaxis: {range: [2008, 2020]},
   yaxis: {range: [2042488, 2399929]},
     plot_bgcolor:"rgba(0,0,0,0)",
@@ -568,6 +570,7 @@ Plotly.newPlot('AIDS', [{
     var data = [trace3];
     
     var layout = {
+      width: 600,
       title: 'Malaria infections per 1000 at risk people',
       automargin:true,
       xaxis: {range: [2008, 2022]},
@@ -614,6 +617,7 @@ Plotly.newPlot('AIDS', [{
     width: 3
   },
 }], {
+  width: 600,
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1787]},
 
@@ -759,6 +763,7 @@ Plotly.newPlot('AIDS', [{
   var data = [trace1];
   
   var layout = {
+    width: 600,
         title: 'Global Health Expenditure',
         xaxis: {range: [2008, 2022]},
           yaxis: {range: [0, 1787]},
@@ -806,7 +811,9 @@ Plotly.newPlot('AIDS', [{
     color: '#D52D1F',
     width: 3
   },
+
 }], {
+  width: 600,
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1787]},
 
@@ -957,6 +964,7 @@ var layout = {
   },
   dragmode: false,
   height:800,
+  width: 850,
   annotations: [
     {
       xref: 'paper',
