@@ -340,6 +340,10 @@ html, body, section {
     .TotalLives{
       margin-top: 45rem;
     }
+
+    .glassButton{
+      width: 40%;
+    }
   }
   
   /* @media screen and (max-width:760px){
