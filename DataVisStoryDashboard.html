@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
 html, body, section {
-  block-size: 100%;
+  /* block-size: 100%; */
   background: #15294A;
   font-family:'Roboto Condensed';
   color: #BAE9E4;
@@ -88,12 +88,18 @@ h1{
     margin: 1rem; 
 }
 
-/* .row{
-    margin: 13px 0;
-} */
+.container{
+  padding: 0 0 6rem;
+}
+
 @media (min-width: 1200px){
 .container {
     max-width: 1275px;
+}
+}
+@media (min-width: 768px){
+.container {
+    max-width: 840px;
 }
 }
 .body{
@@ -719,7 +725,7 @@ h1{
       Plotly.newPlot('malaria', data, layout, config);
       </script>
   
-  <script>    
+  <!-- <script>    
   
       d3.csv('/GHE.csv', function(err, rows){
     
@@ -859,7 +865,7 @@ h1{
       });
     })
     
-    </script>
+    </script> -->
   
   <script>    
     d3.csv('/babymotherhour.csv', function(err, rows){
