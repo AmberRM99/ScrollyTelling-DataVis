@@ -697,7 +697,7 @@ Plotly.newPlot('AIDS', [{
 // }
 </script>
 
-<script>
+<!-- <script>
   Plotly.newPlot('GHE', [{
   x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
   y: [874,	912,	986,	996,	1012,	1035,	994,	1016,	1057,	1103,	1122],
@@ -745,6 +745,55 @@ Plotly.newPlot('AIDS', [{
 //MAKE A LOOP FOR FRAMES, MAKE IT LONGER EACH TIME
 })
 
+</script> -->
+<script>
+   var trace1 = {
+      x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+      y: [874,	912,	986,	996,	1012,	1035,	994,	1016,	1057,	1103,	1122],
+    type: 'bar',
+    marker: {
+      color: '#48998C'
+    }
+  };
+  
+  var data = [trace1];
+  
+  var layout = {
+        title: 'Global Health Expenditure',
+        xaxis: {range: [2008, 2022]},
+          yaxis: {range: [0, 1787]},
+            plot_bgcolor:"rgba(0,0,0,0)",
+            paper_bgcolor:"rgba(0,0,0,0)",
+            yaxis: {
+              tickcolor: "rgba(0,0,0,0)",
+              tickwidth: 15,
+              
+              gridcolor: "rgba(0,0,0,0)",
+              gridwidth: 15,
+              
+              zerolinecolor: "rgba(0,0,0,0)",
+              zerolinewidth: 2,
+              title: {
+                 text: 'Spending Per Capita ($)',
+              } 
+            },
+            xaxis: {
+              tickcolor: "rgba(0,0,0,0)",
+              tickwidth: 50,
+              
+              gridcolor: "rgba(0,0,0,0)",
+              gridwidth: 2,      
+            },
+            automargin:true,
+            font: {
+          family: 'Roboto Condensed, monospace',
+          color: '#BAE9E4'
+          },
+      };
+  
+      var config = {responsive: true}
+  
+  Plotly.newPlot('GHE', data, layout, config);
 </script>
 
 <script>

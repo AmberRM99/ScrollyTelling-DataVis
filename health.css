@@ -4,51 +4,7 @@ html, body, section {
       font-family:'Roboto Condensed';
       /* font-size:28pt; */
       /* font-size:18pt; */
-  }
-  
-  /* h1{
-    text-align:center;
-    font-size: 1.5em;
-      margin-block-start: 0.83em;
-      margin-block-end: 0.83em;
-      display: block;
-      margin-block-start: 0.67em;
-      margin-block-end: 0.67em;
-      margin-inline-start: 0;
-      margin-inline-end: 0;
-      font-weight: bold;
-  }
-  
-  
-  h3{
-    display: block;
-      font-size: 1.17em;
-      margin-block-start: 1em;
-      margin-block-end: 1em;
-      margin-inline-start: 0;
-      margin-inline-end: 0;
-      font-weight: bold;
-  }
-  
-  h4{
-    display: block;
-    font-size: 1.1em;
-      margin-block-start: 1.33em;
-      margin-block-end: 1.33em;
-      margin-inline-start: 0;
-      margin-inline-end: 0;
-      font-weight: bold;
-  }
-  
-  h6{
-    display: block;
-      font-size: 0.67em;
-      margin-block-start: 2.33em;
-      margin-block-end: 2.33em;
-      margin-inline-start: 0;
-      margin-inline-end: 0;
-      font-weight: bold;
-  } */
+}
   html {
     scroll-snap-type: y mandatory;
   }
@@ -374,11 +330,11 @@ html, body, section {
     .row{
       flex-direction: column;
     }
-    section{
-      width:100vw;
-    }
     .MotherInfantLoss{
       width:100%;
+    }
+    section{
+     margin:2rem 0;
     }
   }
   
