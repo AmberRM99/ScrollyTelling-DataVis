@@ -187,6 +187,11 @@ h1{
     left: 0;
   }
 }
+
+.bodyHolder{
+overflow:hidden;
+height:0;
+}
     </style>
 </head>
 <body>
@@ -205,8 +210,9 @@ h1{
     <h1 >World Health Monitor</h1>
 <img style="margin: 0 0 2rem;" width="300" height="80" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
-    <h6 style="  text-align:center;"><a class="goBack" href="/index.html">The Story So Far...</a></h6>
+    <h6 style="text-align:center;"><a class="goBack" href="/index.html">The Story So Far...</a></h6>
 </div>
+<div class="bodyHolder">
 <div class="container" >
     <div class="row">
         <div class="row col-md" style="margin: 0;  flex-direction: column; display: flex;">
@@ -270,6 +276,7 @@ h1{
         
     </div>
 </div>
+</div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.17.1/plotly.min.js'></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
 
@@ -277,9 +284,24 @@ h1{
     window.onload = (event) => {
     $('.loading').delay( 800 ).fadeOut()
     $('.body').delay( 800 ).fadeIn()
-    //  $('.container').delay( 800 ).css
+    //  $('.bodyHolder').delay( 800 ).fadeIn()
+    //  $('.container').delay( 800 ).css('display', 'block')
+   
+
+    // $('.body').delay(800).show(0);
+    // $('.container').delay(800).show(0);
+    $('.bodyHolder')
+  .delay(800)
+  .queue(function (next) { 
+    $(this).css('height', '100%'); 
+    $(this).css('overflow', 'visible'); 
+    // height: 0;
+    // overflow: hidden;
+    next(); 
+  });
     maind()
   };
+
   
   
   function ViewGHE(chosenView, rejectedView){
