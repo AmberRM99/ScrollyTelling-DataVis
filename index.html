@@ -12,465 +12,15 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<link rel="stylesheet" href="font.css">
+<link rel="stylesheet" href="/font.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<style>
-html, body, section {
-  block-size: 100%;
-    background: #15294A;
-    font-family:'Roboto Condensed';
-    /* font-size:28pt; */
-}
-
-h1{
-  text-align:center;
-  font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    display: block;
-    margin-block-start: 0.67em;
-    margin-block-end: 0.67em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-weight: bold;
-}
-
-
-h3{
-  display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-weight: bold;
-}
-
-h4{
-  display: block;
-  font-size: 1.1em;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-weight: bold;
-}
-
-h6{
-  display: block;
-    font-size: 0.67em;
-    margin-block-start: 2.33em;
-    margin-block-end: 2.33em;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-    font-weight: bold;
-}
-html {
-  scroll-snap-type: y mandatory;
-}
-
-.AboutChart{
-  display:flex;
-  flex-direction: column;
-}
-
-.AboutChart p{
-  font-size:1.4rem;
-  padding: 0 1.5rem;
-}
-
-.TotalLives{
-  background-color:#15294A;
-  padding:0;
-  display:flex;
-  flex-direction: column;
-}
-
-.TotalLives .row{
-  display: flex;
-    flex-direction: row-reverse;
-}
-.peopleChartTxt {
-  font-size: 1.5rem;
-  display: flex;
-  height: 8rem;
-  align-items: center;
-  height: auto;
-}
-
-.col-8{
-  justify-content: flex-start;
-  display:flex;
-  align-items: center;
-  flex-wrap:wrap;
-}
-
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-  scroll-snap-type: y mandatory;
-  
-  padding: 0 4%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  color: #BAE9E4;
-  background: #15294A;
-}
-
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  font-size: 4rem;
-}
-
-.glassButton{
-  background: #BAE9E4;
-  border: 2px solid #2ca08ecf;
-  box-shadow: 0px 6px 5px #03122a;
-  border-radius: 15px;
-  color: #0B7564;
-  width:26%;
-  text-align:    center;
-  font-size: 1.8rem;
-  padding:10px;
-  text-decoration: none;
-  transition: all 0.5s ease-out;
-}
-
-.glassButton:hover{
-  background: #0B7564;
-    box-shadow: 0px 4px 4px #9fe0d840;
-  text-decoration: none;
-  color:#BAE9E4;
-}
-
-.glassButton:hover span{
-  transform: scale(1.1) perspective(1px);
-    will-change: transform;
-}
-
-.citation{
-  text-align:center;
-  font-size: 0.9rem;
-}
-
-#scroll-progress {
-  position: fixed;
-  bottom: 0;
-  width: 2%;
-  height: 4px;
-  background: #D52D1F;
-  z-index: 10000;
-}
-
-.maskB {
-  -webkit-mask-image: url(baby.svg);
-  mask-image: url(baby.svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;    
-}
-
- .maskM {
-  -webkit-mask-image: url(mother.svg);
-  mask-image: url(mother.svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;    
-}
-
-.babyPercent{
-  background-image: linear-gradient(0deg, #48998C 70%, #48998c4a 72%);
-   
-}
-.babyPercent, .motherPercent{
-  width: 20rem;
-  height: 20rem;
-}
-
-.motherPercent{
-  width: 15rem;
-  background:linear-gradient(0deg,#D52D1F 95%,#D52D1F4a 97%)
-}
-
-.imagesHolder{
-  width:100vw;
-  height:100%;
-  position:relative;
-}
-
-.imagesHolder img{
-  position:absolute;
-  opacity:0.8
-}
-
-/* .loadDash {
-    position: relative;
-    display: inline-block;
-    padding: 1rem;
-    cursor: pointer;
-    color: #FFF;
-    letter-spacing: 1px;
-    background: #377e72 none repeat scroll 0% 0%;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 0 1px 0 rgb(255 255 255 / 25%), 0 1px 0 rgb(255 255 255 / 25%) inset, 0 0 0 rgb(0 0 0 / 50%) inset, 0 1.25rem 0 rgb(255 255 255 / 8%) inset, 0 -1.25rem 1.25rem rgb(0 0 0 / 30%) inset, 0 1.25rem 1.25rem rgb(255 255 255 / 10%) inset;
-    transition: all 0.2s linear 0s;
-    margin: 0.618rem;
-    width: 26%;
-    text-align: center;
-    font-size: 1.4rem;
-    text-decoration: none;
-}
-
-.loadDash i{
-  font-size:2rem;
-  padding-right:5px;
-}
-
-.loadDash:hover,
-.loadDash:focus {
-  color:white;
-  text-decoration: none;
-  box-shadow:
-    0 2px 5px rgba(0, 0, 0, 0.5),
-    0 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 0 0 rgba(0, 0, 0, 0.25) inset,
-    0 20px 0 rgba(255, 255, 255, 0.03) inset,
-    0 -20px 20px rgba(0, 0, 0, 0.15) inset,
-    0 20px 20px rgba(255, 255, 255, 0.05) inset;
-}
-.loadDash:active {
-  box-shadow:
-    0 1px 0 rgba(255, 255, 255, 0.25),
-    0 1px 0 rgba(255, 255, 255, 0) inset,
-    0 0 5px rgba(0, 0, 0, 0.5) inset,
-    0 20px 0 rgba(255, 255, 255, 0.03) inset,
-    0 -20px 20px rgba(0, 0, 0, 0.15) inset,
-    0 20px 20px rgba(255, 255, 255, 0.05) inset;
-}
-
-.loadDash::before {
-  content: "";
-  display: block;
-  position: absolute;
-  background:-moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
-  background:-webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
-  background:-webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
-  background:linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
-  padding: x 12px;
-  top: 0;
-  left: 15%;
-  height: 1px;
-  width: 40%;
-  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease-in-out 0s;
-}
-.loadDash:active::before {
-  opacity: 0;
-}
-.loadDash:hover::before {
-  left: 45%;
-} */
-
-.MotherInfantLoss{
-    display: flex;
-    flex-direction: column;
-    /* padding: 0 27px; */
-    width: 30%;
-    margin-right: 1.5rem;
-}
-
-.personCount{
-  transition: opacity 4000ms;
-  will-change: opacity;
-  color:#15294A;
-  font-size: 2.8rem;
-    margin: 1.25rem;
-  animation-name: people;
-  animation-duration: 0.5s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-
-@keyframes people {
-  0% {color:#15294A}
-  50%{color:#48998C}
-  100% {color: #BAE9E4}
-}
-
-.peopleImg{
-  opacity: 0;
-}
-
-@keyframes IMGpeople {
-  0% {opacity:0}
-  100% {opacity: 1}
-}
-
-.livesSaved::after {
-  content: '1,232,'counter(count);
-  animation: counter 3s linear 1 alternate;
-  counter-reset: count 402;
-}
-
-.babyStat, .motherStat{
-  font-size:1.5rem;
-}
-
-.babyStat::after {
-  content: counter(Bcount)'%';
-  animation: counterBMort 3s ease-out 1 alternate;
-  counter-reset: Bcount 27;
-}
-.motherStat::after {
-  content: counter(Mcount) ;
-  animation: counterMMort 3s ease-out 1 alternate;
-  counter-reset: Mcount 295000;
-}
-
-@keyframes counter {
-  0% {
-    counter-set: count 330;
-  }
-  10% {
-    counter-set: count 338;
-  }
-  20% {
-    counter-set: count 346;
-  }
-  30% {
-    counter-set: count 352;
-  }
-  40% {
-    counter-set: count 359;
-  }
-  50% {
-    counter-set: count 367;
-  }
-  60% {
-    counter-set: count 374;
-  }
-  70% {
-    counter-set: count 385;
-  }
-  80% {
-    counter-set: count 391;
-  }
-  90% {
-    counter-set: count 398;
-  }
-  100% {
-    counter-set: count 406;
-  }
-}
-
-@keyframes counterMMort {
-  0% {
-    counter-set: Mcount 354000;
-  }
-  10% {
-    counter-set: Mcount 343000;
-  }
-  20% {
-    counter-set: Mcount 334000;
-  }
-  30% {
-    counter-set: Mcount 326000;
-  }
-  40% {
-    counter-set: Mcount 319000;
-  }
-  50% {
-    counter-set: Mcount 313000;
-  }
-  60% {
-    counter-set: Mcount 306000;
-  }
-  70% {
-    counter-set: Mcount 300000;
-  }
-  100% {
-    counter-set: Mcount 295000;
-  }
-}
-
-@keyframes counterBMort {
-  0% {
-    counter-set: Bcount 39;
-  }
-  10% {
-    counter-set: Bcount 37;
-  }
-  20% {
-    counter-set: Bcount 36;
-  }
-  30% {
-    counter-set: Bcount 35;
-  }
-  40% {
-    counter-set: Bcount 33;
-  }
-  50% {
-    counter-set: Bcount 32;
-  }
-  60% {
-    counter-set: Bcount 31;
-  }
-  70% {
-    counter-set: Bcount 30;
-  }
-  80% {
-    counter-set: Bcount 29;
-  }
-  90% {
-    counter-set: Bcount 29;
-  }
-  100% {
-    counter-set: Bcount 27;
-  }
-}
-
-@media screen and (max-width:1090px){
-  h1{
-    font-size: 1em;
-  }
-  h3{
-    font-size: 0.89em;
-  }
-  h4{
-    font-size: 0.6em;
-  }
-  h6{
-    font-size: 0.48em;
-  }
-
-  .row{
-    flex-direction: column;
-  }
-  section{
-    width:113vw;
-    justify-content: space-evenly;
-  }
-  .MotherInfantLoss{
-    width:100%;
-  }
-}
-
-@media screen and (max-width:760px){
-  .AboutChart{
-  display:none;
-  }
-}
-
-</style>
+<link rel="stylesheet" href="/health.css">
 </head>
 <body>
 <div id="scroll-progress"></div>
 <section style="display:flex; flex-direction:column;">
   <h1>Global Healthcare has come a long way in 10 years</h1>
-  <img style="position:absolute; top:0;left:70%;" width="400" height="100" src="WGS-summit-logo.png" alt="World Government Summit Logo">
+  <img style="position:absolute; top:0;right:0" width="400" height="100" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
 </section>
 <section class="container">
@@ -564,7 +114,7 @@ body {
 </section>
 <section class="container">
   <div class="row">
-  <div class="MotherInfantLoss col-md">
+  <div class="MotherInfantLoss AboutChart col-md">
   <h4>But there's still more work to be done</h4>
 <p style="font-size:1.3rem;">Every hour, hundreds of families are devastated by the loss of an expectant mother or baby during childbirth</p>
 </div>
@@ -651,9 +201,9 @@ $(window).on('resize scroll', function() {
   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
   scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
 
-    if($('#MotherBaby').isInViewport()){
-      // startAnimation()
-    }
+    // if($('#MotherBaby').isInViewport()){
+    //   // startAnimation()
+    // }
     if ($('#MMortality').isInViewport()) {
         $('#MMortality').addClass('motherStat')
     } else{
@@ -670,15 +220,6 @@ $(window).on('resize scroll', function() {
       $('#livesFigure').removeClass('livesSaved')
     }
     if($('#totalLives').isInViewport()){
-      let img = document.getElementsByClassName('peopleImg');
-      for(let i=0; i<img.length; i++){
-        img[i].style.animationName = 'IMGpeople'
-        img[i].style.animationDuration = '0.5s'
-        img[i].style.animationIterationCount = 1;
-        img[i].style.animationFillMode = 'forwards'
-        img[i].style.animationDelay = i/4+'s'
-      }
-
       if($('.peopleImg').length === 0){
       let Malariatotal = 26;
       var MdocFrag = document.createDocumentFragment();
@@ -719,11 +260,11 @@ $(window).on('resize scroll', function() {
       }
       for(var z = 0; z < TBtotal; z++) {
         let figure = document.createElement('i');
-        figure.style.animationName = 'IMGpeople'
-        figure.style.animationDuration = '0.5s'
+        figure.style.animationName = 'IMGpeople';
+        figure.style.animationDuration = '0.5s';
         figure.style.animationIterationCount = 1;
-        figure.style.animationFillMode = 'forwards'
-        figure.style.animationDelay = z/5+'s'
+        figure.style.animationFillMode = 'forwards';
+        figure.style.animationDelay = z/5+'s';
             figure.classList.add('fas', 'fa-person', 'peopleImg')
             if(z === TBtotal-1){
               figure.style.background =  "-webkit-linear-gradient(left, #BAE9E4 0%, #fff0 50%)";
@@ -767,9 +308,6 @@ $(window).on('resize scroll', function() {
         $('.personCount').remove();
       }
 });
-
-// console.log(shuffleArray(foo))
-
 
 </script>
 
@@ -976,19 +514,19 @@ Plotly.newPlot('AIDS', [{
   ]);
 })
 
-function startAnimationAids() {
-  Plotly.animate('AIDS', ['frame1', 'frame2'], {
-    frame: [
-      {duration: 1500},
-      {duration: 500},
-    ],
-    transition: [
-      {duration: 800, easing: 'elastic-in'},
-      {duration: 100, easing: 'cubic-in'},
-    ],
-    mode: 'afterall'
-  })
-}
+// function startAnimationAids() {
+//   Plotly.animate('AIDS', ['frame1', 'frame2'], {
+//     frame: [
+//       {duration: 1500},
+//       {duration: 500},
+//     ],
+//     transition: [
+//       {duration: 800, easing: 'elastic-in'},
+//       {duration: 100, easing: 'cubic-in'},
+//     ],
+//     mode: 'afterall'
+//   })
+// }
 </script>
 <script>
    var trace3 = {
@@ -1117,7 +655,7 @@ function startAnimationAids() {
       arrowsize: 1,
       arrowwidth: 2,
       arrowcolor: '#9FE0D8',
-      ax: 20,
+      ax: 0,
       ay: -90,
     }
   ],
@@ -1141,19 +679,19 @@ function startAnimationAids() {
   ]);
 })
 
-function startAnimationPolio() {
-  Plotly.animate('polio', ['frame1', 'frame2'], {
-    frame: [
-      {duration: 1500},
-      {duration: 500},
-    ],
-    transition: [
-      {duration: 800, easing: 'elastic-in'},
-      {duration: 100, easing: 'cubic-in'},
-    ],
-    mode: 'afterall'
-  })
-}
+// function startAnimationPolio() {
+//   Plotly.animate('polio', ['frame1', 'frame2'], {
+//     frame: [
+//       {duration: 1500},
+//       {duration: 500},
+//     ],
+//     transition: [
+//       {duration: 800, easing: 'elastic-in'},
+//       {duration: 100, easing: 'cubic-in'},
+//     ],
+//     mode: 'afterall'
+//   })
+// }
 </script>
 
 <script>
@@ -1216,19 +754,19 @@ function startAnimationPolio() {
   ]);
 })
 
-function startAnimationGHE() {
-  Plotly.animate('GHE', ['frame1', 'frame2'], {
-    frame: [
-      {duration: 1500},
-      {duration: 500},
-    ],
-    transition: [
-      {duration: 800, easing: 'elastic-in'},
-      {duration: 100, easing: 'cubic-in'},
-    ],
-    mode: 'afterall'
-  })
-}
+// function startAnimationGHE() {
+//   Plotly.animate('GHE', ['frame1', 'frame2'], {
+//     frame: [
+//       {duration: 1500},
+//       {duration: 500},
+//     ],
+//     transition: [
+//       {duration: 800, easing: 'elastic-in'},
+//       {duration: 100, easing: 'cubic-in'},
+//     ],
+//     mode: 'afterall'
+//   })
+// }
 </script>
 
 <script>
@@ -1270,38 +808,38 @@ function startAnimationGHE() {
   color: '#fff'
   },
 
-}).then(function () {
-  Plotly.addFrames('TB', [
-    {
-      data: [{x: [0, 0], y: [0, 0]}],
-      name: 'frame1'
-    }, {
-      data: [{  x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021],
-  y: [1787,	1412,	716	,293,	481,	415,	106,	42,	118,	138,	554	,1253,	649 ]}],
-      name: 'frame2'
-    }
-  ]);
 })
+// .then(function () {
+//   Plotly.addFrames('TB', [
+//     {
+//       data: [{x: [0, 0], y: [0, 0]}],
+//       name: 'frame1'
+//     }, {
+//       data: [{  x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021],
+//   y: [1787,	1412,	716	,293,	481,	415,	106,	42,	118,	138,	554	,1253,	649 ]}],
+//       name: 'frame2'
+//     }
+//   ]);
+// })
 
-function startAnimationTB() {
-  Plotly.animate('TB', ['frame1', 'frame2'], {
-    frame: [
-      {duration: 1500},
-      {duration: 500},
-    ],
-    transition: [
-      {duration: 800, easing: 'elastic-in'},
-      {duration: 100, easing: 'cubic-in'},
-    ],
-    mode: 'afterall'
-  })
-}
+// function startAnimationTB() {
+//   Plotly.animate('TB', ['frame1', 'frame2'], {
+//     frame: [
+//       {duration: 1500},
+//       {duration: 500},
+//     ],
+//     transition: [
+//       {duration: 800, easing: 'elastic-in'},
+//       {duration: 100, easing: 'cubic-in'},
+//     ],
+//     mode: 'afterall'
+//   })
+// }
 </script>
 
 <script>    
   d3.csv('babymotherhour.csv', function(err, rows){
   function filter_and_unpack(rows, key, index) {
-    // console.log(rows)
   return rows.slice(0, index).map(row => row[key])
   }
   
@@ -1314,11 +852,8 @@ function startAnimationTB() {
   
   var n = 12;
   var num = 2;
-  // console.log(rows)
-  // console.log(rows)
   for (var i = 2; i <= (rows.length); i++) {
     var y = filter_and_unpack(rows, 'y', num)
-    // console.log(y)
     var x = filter_and_unpack(rows, 'x', num)
     var locations = filter_and_unpack(rows, 'Alpha-3 code', num)
     var colors=filter_and_unpack(rows, 'person', num)
@@ -1514,21 +1049,6 @@ Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
     Plotly.addFrames('MotherBaby', frames);
   });
 })
-
-function startAnimation() {
-  console.log('start anim called')
-  Plotly.animate('MotherBaby', frames, {
-    frame: [
-      {duration: 1500},
-      {duration: 500},
-    ],
-    transition: [
-      {duration: 800, easing: 'elastic-in'},
-      {duration: 100, easing: 'cubic-in'},
-    ],
-    mode: 'afterall'
-  })
-}
 
 //   d3.csv('/dashboard.csv', function(err, rows){
 // function filter_and_unpack(rows, key, year) {

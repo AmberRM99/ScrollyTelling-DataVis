@@ -278,7 +278,6 @@ h1{
   
   function ViewGHE(chosenView, rejectedView){
     if(chosenView === 'GHEGPD'){
-    console.log('map')
     document.getElementById('col-for-ghe').style.display ="flex";
   } else{
     document.getElementById('col-for-ghe').style.display ="unset";
@@ -865,7 +864,6 @@ h1{
   <script>    
     d3.csv('/babymotherhour.csv', function(err, rows){
     function filter_and_unpack(rows, key, index) {
-      // console.log(rows)
     return rows.slice(0, index).map(row => row[key])
     }
     
@@ -878,11 +876,9 @@ h1{
     
     var n = 12;
     var num = 2;
-    // console.log(rows)
-    // console.log(rows)
+
     for (var i = 2; i <= (rows.length); i++) {
       var y = filter_and_unpack(rows, 'y', num)
-      // console.log(y)
       var x = filter_and_unpack(rows, 'x', num)
       var locations = filter_and_unpack(rows, 'Alpha-3 code', num)
       var colors=filter_and_unpack(rows, 'person', num)
@@ -1158,12 +1154,15 @@ h1{
     
     function ChangeValue(number,pv){
       numberstring =""
+      number = number - 16948300;
       var j=0 
       var i=0
       while (number > 1)
        { 
     
           numberstring = (Math.round(number-0.5) % 10) + numberstring
+          console.log(numberstring)
+          console.log(number)
           number= number / 10
           j++
           if (number > 1 && j==3) { 
@@ -1171,8 +1170,9 @@ h1{
           j=0}
           i++
        }
-    
-       numberstring=numberstring
+  
+       numberstring=numberstring;
+      //  console.log(typeof numberstring)
     
     if (pv==1) {document.getElementById("worldpop").innerHTML=' '+numberstring }
     }
@@ -1245,7 +1245,7 @@ h1{
     d3.csv('/POPULATION.csv', function(err, rows){
         function unpack(rows, key) {
   
-            return rows.map(function(row) { console.log(row); return row[key]; });
+            return rows.map(function(row) { return row[key]; });
         }
   
          var data = [{
