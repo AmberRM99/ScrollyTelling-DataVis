@@ -64,7 +64,11 @@ html, body, section {
   
   .AboutChart p{
     font-size:1.4rem;
-    padding: 0 1.5rem;
+    /* padding: 0 1.5rem; */
+  }
+
+  .col-md{
+    margin:auto;
   }
   
   .TotalLives{
