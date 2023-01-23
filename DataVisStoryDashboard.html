@@ -1113,29 +1113,6 @@ h1{
     })
   }
   
-  //   d3.csv('/dashboard.csv', function(err, rows){
-  // function filter_and_unpack(rows, key, year) {
-  // return rows.filter(row => row <= year).map(row => row[key])
-  // }
-  // function unpack(rows, key) {
-  //     return rows.map(function(row) { return row[key]; });
-  // }
-  // var data = [
-  // {
-  //         type:"choropleth",
-  //         locationmode: 'country names',
-  //         locations:unpack(rows,"indicator"),
-  //         z:unpack(rows,"% of population with access to electricity"),
-  //         colorscale:["#EADEDA","#A44A3F"],
-  //         showscale:false
-  //       },
-  
-  // ];
-  
-  // // Plotly.newPlot('myDiv', data, layout).then(function() {
-  //   Plotly.addTraces('myDiv', data);
-  // // });
-  // })
   </script>
   <script>
   
@@ -1161,8 +1138,6 @@ h1{
        { 
     
           numberstring = (Math.round(number-0.5) % 10) + numberstring
-          console.log(numberstring)
-          console.log(number)
           number= number / 10
           j++
           if (number > 1 && j==3) { 
@@ -1172,11 +1147,9 @@ h1{
        }
   
        numberstring=numberstring;
-      //  console.log(typeof numberstring)
     
     if (pv==1) {document.getElementById("worldpop").innerHTML=' '+numberstring }
     }
-    
     
     function now(year,month,date,hours,minutes,seconds){       
     startdatum = new Date(year,month,date,hours,minutes,seconds)
