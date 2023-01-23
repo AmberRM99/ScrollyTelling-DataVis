@@ -31,9 +31,16 @@
   <div id="GHE"></div>
   </div>
 </section>
-<section style=" padding-top: 5rem;display:flex; flex-direction: column;">
-  <div id="GHEGPD"></div>
-  <p class="citation" style=" top: -5rem;">*figures for 2021 OR most recently published data (last 5 years)</p>
+<section class="container" >
+  <div class="row" style="display:flex; flex-direction: column;">
+    <div class="col-md">
+      <div id="GHEGPD"></div>
+    </div>
+    <div class="col-md">
+      <p class="citation" style=" top: -5rem;">*figures for 2021 OR most recently published data (last 5 years)</p>
+    </div>
+  </div>
+  
 </section>
 <section style="overflow:hidden;">
   <div class="imagesHolder">
@@ -199,11 +206,15 @@ function shuffleArray(array) {
     }
     return array
 }
-let wideChart = 750;
+let wideChart;
 let regularChart = 600;
 $(window).on('resize scroll', function() {
   if(window.width < 800){
     wideChart = 600;
+    regularChart = 600;
+  } else{
+   wideChart = 750;
+   regularChart = 600;
   }
   const scrollProgress = document.getElementById('scroll-progress');
   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
@@ -768,7 +779,8 @@ Plotly.newPlot('AIDS', [{
   var data = [trace1];
   
   var layout = {
-    width: regularChart,
+    // width: regularChart,
+    width: 550,
         title: 'Global Health Expenditure',
         xaxis: {range: [2008, 2022]},
           yaxis: {range: [0, 1787]},
@@ -1155,7 +1167,8 @@ Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
     pad: 10
   },
   dragmode: false,
-  height:650,
+   height:650,
+  width: 650,
         dragmode: false,
   font: {
   family: 'Roboto Condensed, monospace',

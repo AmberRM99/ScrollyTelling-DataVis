@@ -336,6 +336,10 @@ html, body, section {
     section{
      margin:2rem 0;
     }
+
+    .TotalLives{
+      margin-top: 45rem;
+    }
   }
   
   /* @media screen and (max-width:760px){
