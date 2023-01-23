@@ -3,9 +3,10 @@ html, body, section {
       background: #15294A;
       font-family:'Roboto Condensed';
       /* font-size:28pt; */
+      /* font-size:18pt; */
   }
   
-  h1{
+  /* h1{
     text-align:center;
     font-size: 1.5em;
       margin-block-start: 0.83em;
@@ -47,7 +48,7 @@ html, body, section {
       margin-inline-start: 0;
       margin-inline-end: 0;
       font-weight: bold;
-  }
+  } */
   html {
     scroll-snap-type: y mandatory;
   }
@@ -63,7 +64,7 @@ html, body, section {
   }
   
   .AboutChart p{
-    font-size:1.4rem;
+    font-size:1rem;
     /* padding: 0 1.5rem; */
   }
 
@@ -111,12 +112,6 @@ html, body, section {
     background: #15294A;
   }
   
-  body {
-    margin: 0;
-    font-family: system-ui, sans-serif;
-    font-size: 4rem;
-  }
-  
   .glassButton{
     background: #BAE9E4;
     border: 2px solid #2ca08ecf;
@@ -146,6 +141,8 @@ html, body, section {
   .citation{
     text-align:center;
     font-size: 0.9rem;
+    position:relative;
+    top:10rem;
   }
   
   #scroll-progress {
@@ -196,75 +193,6 @@ html, body, section {
     opacity:0.8
   }
   
-  /* .loadDash {
-      position: relative;
-      display: inline-block;
-      padding: 1rem;
-      cursor: pointer;
-      color: #FFF;
-      letter-spacing: 1px;
-      background: #377e72 none repeat scroll 0% 0%;
-      border: none;
-      border-radius: 4px;
-      box-shadow: 0 1px 0 rgb(255 255 255 / 25%), 0 1px 0 rgb(255 255 255 / 25%) inset, 0 0 0 rgb(0 0 0 / 50%) inset, 0 1.25rem 0 rgb(255 255 255 / 8%) inset, 0 -1.25rem 1.25rem rgb(0 0 0 / 30%) inset, 0 1.25rem 1.25rem rgb(255 255 255 / 10%) inset;
-      transition: all 0.2s linear 0s;
-      margin: 0.618rem;
-      width: 26%;
-      text-align: center;
-      font-size: 1.4rem;
-      text-decoration: none;
-  }
-  
-  .loadDash i{
-    font-size:2rem;
-    padding-right:5px;
-  }
-  
-  .loadDash:hover,
-  .loadDash:focus {
-    color:white;
-    text-decoration: none;
-    box-shadow:
-      0 2px 5px rgba(0, 0, 0, 0.5),
-      0 1px 0 rgba(255, 255, 255, 0.25) inset,
-      0 0 0 rgba(0, 0, 0, 0.25) inset,
-      0 20px 0 rgba(255, 255, 255, 0.03) inset,
-      0 -20px 20px rgba(0, 0, 0, 0.15) inset,
-      0 20px 20px rgba(255, 255, 255, 0.05) inset;
-  }
-  .loadDash:active {
-    box-shadow:
-      0 1px 0 rgba(255, 255, 255, 0.25),
-      0 1px 0 rgba(255, 255, 255, 0) inset,
-      0 0 5px rgba(0, 0, 0, 0.5) inset,
-      0 20px 0 rgba(255, 255, 255, 0.03) inset,
-      0 -20px 20px rgba(0, 0, 0, 0.15) inset,
-      0 20px 20px rgba(255, 255, 255, 0.05) inset;
-  }
-  
-  .loadDash::before {
-    content: "";
-    display: block;
-    position: absolute;
-    background:-moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
-    background:-webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
-    background:-webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
-    background:linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
-    padding: x 12px;
-    top: 0;
-    left: 15%;
-    height: 1px;
-    width: 40%;
-    box-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease-in-out 0s;
-  }
-  .loadDash:active::before {
-    opacity: 0;
-  }
-  .loadDash:hover::before {
-    left: 45%;
-  } */
-  
   .MotherInfantLoss{
       display: flex;
       flex-direction: column;
@@ -277,7 +205,7 @@ html, body, section {
     transition: opacity 4000ms;
     will-change: opacity;
     color:#15294A;
-    font-size: 2.8rem;
+    font-size: 1.8rem;
       margin: 1.25rem;
     animation-name: people;
     animation-duration: 0.5s;
@@ -293,11 +221,17 @@ html, body, section {
   
   .peopleImg{
     opacity: 0;
+    font-size: 2.3rem;
   }
   
   @keyframes IMGpeople {
     0% {opacity:0}
     100% {opacity: 1}
+  }
+
+  .livesSaved{
+    font-size:1.8rem;
+    font-weight:bold;
   }
   
   .livesSaved::after {
@@ -424,7 +358,7 @@ html, body, section {
   }
   
   @media screen and (max-width:1090px){
-    h1{
+    /* h1{
       font-size: 1em;
     }
     h3{
@@ -435,22 +369,22 @@ html, body, section {
     }
     h6{
       font-size: 0.48em;
-    }
+    } */
   
     .row{
       flex-direction: column;
     }
     section{
       width:100vw;
-      justify-content: space-evenly;
+      /* justify-content: space-evenly; */
     }
     .MotherInfantLoss{
       width:100%;
     }
   }
   
-  @media screen and (max-width:760px){
+  /* @media screen and (max-width:760px){
     .AboutChart{
     display:none;
     }
-  }
+  } */
