@@ -199,7 +199,12 @@ function shuffleArray(array) {
     }
     return array
 }
+let wideChart = 750;
+let regularChart = 600;
 $(window).on('resize scroll', function() {
+  if(window.width < 800){
+    wideChart = 600;
+  }
   const scrollProgress = document.getElementById('scroll-progress');
   const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
   scrollProgress.style.width = `${(scrollTop / height) * 100}%`;
@@ -391,7 +396,7 @@ var layout = {
 
   paper_bgcolor:"rgba(0,0,0,0)",
   height:700,
-  width:750,
+  width:wideChart,
     updatemenus: [{
       x: 0.1,
       y: 0,
@@ -475,7 +480,7 @@ Plotly.newPlot('AIDS', [{
     width: 3
   },
 }], {
-  width: 600,
+  width: regularChart,
   xaxis: {range: [2008, 2020]},
   yaxis: {range: [2042488, 2399929]},
     plot_bgcolor:"rgba(0,0,0,0)",
@@ -570,7 +575,7 @@ Plotly.newPlot('AIDS', [{
     var data = [trace3];
     
     var layout = {
-      width: 600,
+      width: regularChart,
       title: 'Malaria infections per 1000 at risk people',
       automargin:true,
       xaxis: {range: [2008, 2022]},
@@ -617,7 +622,7 @@ Plotly.newPlot('AIDS', [{
     width: 3
   },
 }], {
-  width: 600,
+  width: regularChart,
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1787]},
 
@@ -763,7 +768,7 @@ Plotly.newPlot('AIDS', [{
   var data = [trace1];
   
   var layout = {
-    width: 600,
+    width: regularChart,
         title: 'Global Health Expenditure',
         xaxis: {range: [2008, 2022]},
           yaxis: {range: [0, 1787]},
@@ -813,7 +818,7 @@ Plotly.newPlot('AIDS', [{
   },
 
 }], {
-  width: 600,
+  width: regularChart,
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1787]},
 
@@ -964,7 +969,7 @@ var layout = {
   },
   dragmode: false,
   height:800,
-  width: 850,
+  width: wideChart,
   annotations: [
     {
       xref: 'paper',
