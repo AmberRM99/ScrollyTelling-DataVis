@@ -441,7 +441,7 @@ html, body, section {
       flex-direction: column;
     }
     section{
-      width:113vw;
+      width:100vw;
       justify-content: space-evenly;
     }
     .MotherInfantLoss{
