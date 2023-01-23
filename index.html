@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en" class="mac chrome102 js"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<head>
+<html lang="en" class="mac chrome102 js"><!--<![endif]--><head>
+  <meta charset="utf-8">
   <title>ScrollyTelling Health</title>
   <meta name="description" content="A data visualisation storytelling experience exploring changes surrounding global health between 2009 and today. Submitted for Information Is Beautiful World DataViz challenge 'What Just Happened?'">
   <meta name="keywords" content="Data, Data Visualisation, Healthcare, global, government, health">
   <meta name="author" content="ArcTaurus">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
-<script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+
+<!-- <script src="/plotly.js"></script> -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" href="/font.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,12 +19,12 @@
 <div id="scroll-progress"></div>
 <section style="display:flex; flex-direction:column;">
   <h1>Global Healthcare has come a long way in 10 years</h1>
-  <img style="position:absolute; top:0;right:0" width="400" height="100" src="WGS-summit-logo.png" alt="World Government Summit Logo">
+  <img style="position:absolute; top:0;right:0" width="400" height="114" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
 </section>
 <section class="container">
   <div class="row">
-    <div class="col-md">
+    <div class="AboutChart col-md">
   <h3>Global healthcare spending has increased
     </h3>
   </div>
@@ -36,15 +35,15 @@
 </section>
 <section style=" padding-top: 5rem;display:flex; flex-direction: column;">
   <div id="GHEGPD"></div>
-  <p class="citation">*figures for 2021 OR most recently published data (last 5 years)</p>
+  <p class="citation" style=" top: -5rem;">*figures for 2021 OR most recently published data (last 5 years)</p>
 </section>
 <section style="overflow:hidden;">
   <div class="imagesHolder">
-  <img style="left:70%;top:0;" width="40%" height="40%" src="/thermom.svg">
-  <img style="left:70%;top:60%;opacity:0.7;" width="40%" height="40%" src="/bottle.svg">
-  <h6 style="text-align: center;width: 80%;position: relative;top: 30%;left: 10%;">The effects of this spending can be seen in some of the most notable diseases of our time</h6>
-  <img style="top:0;left: -10%;opacity:0.7;" width="40%" height="40%" src="/plaster.svg">
-  <img style="top:60%;left: -10%;" width="40%" height="40%" src="/needle.svg">
+  <img style="left:70%;top:0;" width="40%" height="40%" src="/thermom.svg" alt="line art illustration of a thermometer">
+  <img style="left:70%;top:60%;opacity:0.7;" width="40%" height="40%" src="/bottle.svg" alt="line art illustration of a medication bottle">
+  <h2 style="text-align: center;width: 80%;position: relative;top: 50%;left: 10%;">The effects of this spending can be seen in some of the most notable diseases of our time</h2>
+  <img style="top:0;left: -10%;opacity:0.7;" width="40%" height="40%" src="/plaster.svg" alt="line art illustration of a plaster">
+  <img style="top:60%;left: -10%;" width="40%" height="40%" src="/needle.svg" alt="line art illustration of an injection needle">
   </div>
   </section>
 <section class="container">
@@ -90,12 +89,13 @@
 </section>
 <section class="container">
   <div class="row">
-  <div class="AboutChart col-md" >
-  <h3>More than half the world has eradicated Malaria</h3>
-  <p style="font-size:1rem;">Eradication is defined as 3+ years without a single case</p>
-  </div>
-  <div class="col-md" id='myDiv'></div>
-  </div>
+  <div class="AboutChart col-md">
+  <h4>More than half the world has eradicated Malaria</h4>
+</div>
+<div class="col-md">
+<div id='myDiv'></div>
+</div>
+</div>
 </section>
 <section style="display:flex; flex-direction:column;">
   <h3 style="text-align:center;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
@@ -125,7 +125,7 @@
 </section>
 <section  style='display:flex; flex-direction:column;'>
  <span style="font-size:8rem;" class="fa-sharp fa-solid fa-person"></span>
-  <h6 style="text-align:center;width:80%;">An estimated <span style="font-size:0.8rem; position:relative; bottom:1.5rem;">*</span> <span id="livesFigure"></span>  lives were saved through medical advancements in infectious diseases</h6>
+  <h4 style="text-align:center;width:80%;">An estimated <span style="font-size:1rem; position:relative; bottom:0.6rem;">*</span> <span id="livesFigure"></span>  lives were saved through medical advancements in infectious diseases</h4>
   <p  class='citation'> *Estimate based on 10 year difference in Tuberculosis, Malaria and HIV/AIDS deaths</p>
 
 </div>
@@ -134,7 +134,7 @@
   <h6 style="margin:1rem;"> Each figure represents 10,000 lives saved</h6>
   <p style="font-size:1.3rem;">That's more people than the entire population of Cyprus</p>
   <div style="display: flex;
-  flex-wrap: wrap;"  id="peopleHolder">
+  flex-wrap: wrap;height:80%;"  id="peopleHolder">
   
 </div>
 </section>
@@ -166,7 +166,7 @@
       </div>
     </div>
 
-    <p class="citation">One person per 10000 estimated lives saved</p>
+    <p class="citation">One person per 10,000 estimated lives saved</p>
   </div>
   
 </section>
@@ -176,7 +176,10 @@
   <!-- <a class="loadDash" href="DataVisStoryDashboard.html"> <i class="fas fa-clipboard-medical"></i> Monitor the World's Health </a> -->
   <a class="glassButton" href="DataVisStoryDashboard.html"><i class="fas fa-clipboard-medical"></i><span>  Monitor the World's Health </span></a>
 </section>
-  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
+<script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
   <script>
 const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
@@ -387,7 +390,7 @@ var layout = {
   },
 
   paper_bgcolor:"rgba(0,0,0,0)",
-   height:700,
+  height:800,
     updatemenus: [{
       x: 0.1,
       y: 0,
@@ -705,7 +708,7 @@ Plotly.newPlot('AIDS', [{
   },
 }], {
   xaxis: {range: [2008, 2022]},
-  yaxis: {range: [0, 1787]},
+  yaxis: {range: [0, 1200]},
 
     plot_bgcolor:"rgba(0,0,0,0)",
     paper_bgcolor:"rgba(0,0,0,0)",
@@ -724,7 +727,7 @@ Plotly.newPlot('AIDS', [{
         size: 16,
         color:'#BAE9E4'
       },
-      pad: {t: 50, b: 10},
+      // pad: {t: 50, b: 10},
       }
     },
     xaxis: {
@@ -740,33 +743,8 @@ Plotly.newPlot('AIDS', [{
   color: '#fff'
   },
 //MAKE A LOOP FOR FRAMES, MAKE IT LONGER EACH TIME
-}).then(function () {
-  Plotly.addFrames('GHE', [
-    {
-      
-      data: [{x: [2009, 2010], y: [1787, 1412]}],
-      name: 'frame1'
-    }, {
-      data: [{  x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
-  y: [874,	912,	986,	996,	1012,	1035,	994,	1016,	1057,	1103,	1122]}],
-      name: 'frame2'
-    }
-  ]);
 })
 
-// function startAnimationGHE() {
-//   Plotly.animate('GHE', ['frame1', 'frame2'], {
-//     frame: [
-//       {duration: 1500},
-//       {duration: 500},
-//     ],
-//     transition: [
-//       {duration: 800, easing: 'elastic-in'},
-//       {duration: 100, easing: 'cubic-in'},
-//     ],
-//     mode: 'afterall'
-//   })
-// }
 </script>
 
 <script>
