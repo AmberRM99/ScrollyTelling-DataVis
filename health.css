@@ -3,7 +3,7 @@ html, body, section {
       background: #15294A;
       font-family:'Roboto Condensed';
       /* font-size:28pt; */
-      /* font-size:18pt; */
+      font-size:12pt;
 }
   html {
     scroll-snap-type: y mandatory;
@@ -55,7 +55,7 @@ html, body, section {
   }
   
   section {
-    height:100vh;
+    height:98vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-snap-type: y mandatory;
@@ -327,6 +327,9 @@ html, body, section {
     h6{
       font-size: 0.48em;
     } */
+    html, body, section {
+      font-size:10pt;
+    }
   
     .row{
       flex-direction: column;
@@ -338,7 +341,7 @@ html, body, section {
     }
     section{
      margin:4rem 0;
-     overflow:hidden;
+     /* overflow:hidden; */
     }
 
     .TotalLives{
@@ -349,6 +352,11 @@ html, body, section {
       width: 40%;
       margin:5rem;
     }
+    .AboutChart{
+      align-items: center;
+      align-content: center;
+      }
+
   }
   
   /* @media screen and (max-width:760px){

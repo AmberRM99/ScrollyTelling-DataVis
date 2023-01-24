@@ -46,7 +46,7 @@
   <img style="left:70%;top:0;" width="40%" height="40%" src="/thermom.svg" alt="line art illustration of a thermometer">
   <img style="left:70%;top:60%;opacity:0.7;" width="40%" height="40%" src="/bottle.svg" alt="line art illustration of a medication bottle">
 
-  <h2 style="text-align: center;width: 80%;position: relative;top: 50%;left: 10%;">The effects of this spending can be seen in some of the most notable diseases of our time</h2>
+  <h2 style="text-align: center;width: 80%;position: relative;top: 40%;left: 10%;">The effects of this spending can be seen in some of the most notable diseases of our time</h2>
 
   <img style="top:0;left: -10%;opacity:0.7;" width="40%" height="40%" src="/plaster.svg" alt="line art illustration of a plaster">
   <img style="top:60%;left: -10%;" width="40%" height="40%" src="/needle.svg" alt="line art illustration of an injection needle">
@@ -369,102 +369,99 @@ var data = [{
 
 
 var layout = {
-  geo: {
-    showframe: false,
-      showland: true,
-      landcolor:"rgba(0,0,0,0)",  
-      bgcolor:"rgba(0,0,0,0)",
-      lakecolor:"rgba(0,0,0,0)",
-      oceancolor:"rgba(0,0,0,0)",
-      countrycolor: "black" ,
-        coastlinecolor:"#2A4065",
-      // projection: {
-      //     type: 'robinson'
-      // }
-  },
-   margin: {
-    l: 50,
-    r: 50,
-    b: 200,
-    t: 200,
-    pad: 1
-  },
-  dragmode: false,
-  font: {
-  family: 'Roboto Condensed, monospace',
-  size: 18,
-  color: '#BAE9E4'
-  },
-
-  paper_bgcolor:"rgba(0,0,0,0)",
-  height:800,
-    updatemenus: [{
-      x: 0.1,
-      y: 0,
-      yanchor: "top",
-      xanchor: "right",
-      showactive: false,
-      direction: "left",
-      type: "buttons",
-      pad: {"t": 87, "r": 10},
-      buttons: [{
-        method: "animate",
-        args: [null, {
-          mode: "immediate",
-          fromcurrent: true,
-          transition: {
-            duration: 200,
-          },
-          frame: {
-            duration: 500
-          }
-        }],
-        label: "Play"
-      }, {
-        method: "animate",
-        args: [   
-          [null],
-          {
-            mode: "immediate",
-            transition: {
-              duration: 0
-            },
-            frame: {
-              duration: 0
-            }
-          }
-        ],
-        label: "Pause"
-      }]
-    }],
-    sliders: [{
-      active: 0,
-      steps: slider_steps,
-      x: 0.1,
-      len: 0.9,
-      xanchor: "left",
-      y: 0,
-      yanchor: "top",
-      pad: {t: 50, b: 10},
-      currentvalue: {
-        visible: true,
-        prefix: "Year:",
-        xanchor: "right",
-        font: {
-          size: 20,
-          color: "#9FE0D8"
-        }
+      title: {
+      text:'Countries who have eradicated Malaria',
+      xref: 'paper',
+      // x: 0.05,
+    },
+      geo: {
+          showland: true,
+          showframe: false,
+          landcolor:"rgba(0,0,0,0)",  
+          bgcolor:"rgba(0,0,0,0)",
+          lakecolor:"rgba(0,0,0,0)",
+          oceancolor:"rgba(0,0,0,0)",
+          countrycolor: "black" ,
+          coastlinecolor:"#425566",
+          // projection: {
+          //     type: 'robinson'
+          // }
       },
-      transition: {
-        duration: 300,
-        easing: "cubic-in-out"
-      }
-    }]
-};
+     automargin:true,
+      font: {
+      family: 'Roboto Condensed, monospace',
+      color: '#BAE9E4'
+      },
+      width: 525,
+    
+      paper_bgcolor:"rgba(0,0,0,0)",
+        updatemenus: [{
+          x: 0.1,
+          y: 0,
+          yanchor: "top",
+          xanchor: "right",
+          showactive: false,
+          direction: "left",
+          type: "buttons",
+          pad: {"t": 87, "r": 10},
+          buttons: [{
+            method: "animate",
+            args: [null, {
+              fromcurrent: true,
+              transition: {
+                duration: 200,
+              },
+              frame: {
+                duration: 500
+              }
+            }],
+            label: "Play"
+          }, {
+            method: "animate",
+            args: [   
+              [null],
+              {
+                mode: "immediate",
+                transition: {
+                  duration: 0
+                },
+                frame: {
+                  duration: 0
+                }
+              }
+            ],
+            label: "Pause"
+          }]
+        }],
+        sliders: [{
+          active: 0,
+          steps: slider_steps,
+          x: 0.1,
+          len: 0.9,
+          xanchor: "left",
+          y: 0,
+          yanchor: "top",
+          pad: {t: 50, b: 10},
+          currentvalue: {
+            visible: true,
+            prefix: "Year:",
+            xanchor: "right",
+            font: {
+              size: 20,
+              color: "#9FE0D8"
+            }
+          },
+          transition: {
+            duration: 300,
+            easing: "cubic-in-out"
+          }
+        }]
+    };
+    
 
-var config = {responsive: true,displayModeBar: false}
+// var config = {responsive: true,displayModeBar: false}
 
-Plotly.newPlot('myDiv', data, layout, config).then(function() {
+Plotly.newPlot('myDiv', data, layout, {responsive: true,displayModeBar: false}).then(function() {
     Plotly.addFrames('myDiv', frames);
   });
 })
