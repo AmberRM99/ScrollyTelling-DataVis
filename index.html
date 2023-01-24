@@ -34,7 +34,7 @@
 </section>
 <section style=" padding-top: 5rem;display:flex; flex-direction: column;">
   <div id="GHEGPD"></div>
-  <p class="citation" style=" top: -5rem;">*figures for 2021 OR most recently published data (last 5 years)</p>
+  <p class="citation" style=" top:1rem;">*figures for 2021 OR most recently published data (last 5 years)</p>
 </section>
 <section style="overflow:hidden;">
   <div class="imagesHolder">
@@ -1094,8 +1094,7 @@ Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
     pad: 10
   },
   dragmode: false,
-  height:650,
-        dragmode: false,
+  // height:650,
   font: {
   family: 'Roboto Condensed, monospace',
   size: 18,
@@ -1118,7 +1117,9 @@ Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
           },
           paper_bgcolor:"rgba(0,0,0,0)",
       };
+
       var config = {responsive: true,displayModeBar: false}
+
       Plotly.newPlot("GHEGPD", data, layout,config,{showLink: false});
 });
 </script>
