@@ -32,9 +32,14 @@
   <div id="GHE"></div>
   </div>
 </section>
-<section style=" padding-top: 5rem;display:flex; flex-direction: column;">
-  <div id="GHEGPD"></div>
-  <p class="citation" style=" top:1rem;">*figures for 2021 OR most recently published data (last 5 years)</p>
+<section class="container" style=" padding-top: 5rem;display:flex; flex-direction: column;">
+  <div  class="row" style="justify-content: center;">
+    <div class="col-sm-12" style="overflow:hidden;">
+        <div id="GHEGPD" style="margin-left:1rem;"></div>
+    </div>
+</div>
+  <!-- <div id="GHEGPD"></div> -->
+  <p class="citation" style=" top: -5rem;">*figures for 2021 OR most recently published data (last 5 years)</p>
 </section>
 <section style="overflow:hidden;">
   <div class="imagesHolder">
@@ -1086,15 +1091,15 @@ Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
 
       var layout = {
         title: 'Health Expenditure per GPD (%)',
-        margin: {
-    l: 0,
-    r: 0,
-    b: 0,
-    t: 50,
-    pad: 10
-  },
+    //     margin: {
+    // l: 0,
+    // r: 0,
+    // b: 0,
+    // t: 50,
+    // pad: 10
+  // },
   dragmode: false,
-  // height:650,
+  height:650,
   font: {
   family: 'Roboto Condensed, monospace',
   size: 18,
