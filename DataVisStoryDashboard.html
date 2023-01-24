@@ -914,7 +914,6 @@ height:0;
       var y = filter_and_unpack(rows, 'y', num)
       var x = filter_and_unpack(rows, 'x', num)
       var locations = filter_and_unpack(rows, 'Alpha-3 code', num)
-      var colors=filter_and_unpack(rows, 'person', num)
       frames[num] = {data: [
         {
           // type: 'scattergeo',
@@ -971,14 +970,14 @@ height:0;
       //   zmax: 2021
   
   },
-  // {
-  //         type:"choropleth",
-  //         locationmode: 'country names',
-  //         locations:unpack(rows,"indicator"),
-  //         z:unpack(rows,"% of population with access to electricity"),
-  //         colorscale:["#EADEDA","#A44A3F"],
-  //         showscale:false
-  //       }
+  {
+          type:"choropleth",
+          locationmode: 'country names',
+          locations:unpack(rows,"indicator"),
+          z:unpack(rows,"% of population with access to electricity"),
+          colorscale:["#EADEDA","#A44A3F"],
+          showscale:false
+        }
   ];
   var layout = {
     // title: 'Mother and Infant Deaths Per Hour',

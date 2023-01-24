@@ -55,6 +55,7 @@ html, body, section {
   }
   
   section {
+    height:100vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     scroll-snap-type: y mandatory;
@@ -129,8 +130,8 @@ html, body, section {
      
   }
   .babyPercent, .motherPercent{
-    width: 20rem;
-    height: 20rem;
+    width: 15em;
+    height: 15em;
   }
   
   .motherPercent{
@@ -332,9 +333,11 @@ html, body, section {
     }
     .MotherInfantLoss{
       width:100%;
+      position: relative;
+      top: 5rem;
     }
     section{
-     margin:2rem 0;
+     margin:4rem 0;
     }
 
     .TotalLives{
@@ -343,6 +346,7 @@ html, body, section {
 
     .glassButton{
       width: 40%;
+      margin:5rem;
     }
   }
   

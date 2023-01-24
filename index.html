@@ -15,6 +15,7 @@
 </head>
 <body>
 <div id="scroll-progress"></div>
+<div class="container">
 <section style="display:flex; flex-direction:column;">
   <h1>Global Healthcare has come a long way in 10 years</h1>
   <img style="position:absolute; top:0;right:0" width="400" height="114" src="WGS-summit-logo.png" alt="World Government Summit Logo">
@@ -100,7 +101,7 @@
 <section style="display:flex; flex-direction:column;">
   <h3 style="text-align:center;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
   <!-- <img class="maskB" alt="Baby Pram" src="/baby.svg"> -->
-  <div class="container" style="display:flex; flex-direction:row; justify-content:space-around;">
+  <div class="row" style="display:flex; flex-direction:row; justify-content:space-around;">
 <div class="row" style="display: flex;">
   <div class=" maskB babyPercent" > </div>
   <div class="col"><span id="BMortality"></span> <p style="font-size:1rem;">Infant Mortality Rate</p></div>
@@ -166,16 +167,17 @@
       </div>
     </div>
 
-    <p class="citation">One person per 10,000 estimated lives saved</p>
+    <p class="citation" style="top:0;">One person per 10,000 estimated lives saved</p>
   </div>
   
 </section>
 
 <section style='display:flex; flex-direction:column;'>
-  <h1>How many more lives can be saved in the next 10 years?</h1>
+  <h1 style="text-align:center">How many more lives can be saved in the next 10 years?</h1>
   <!-- <a class="loadDash" href="DataVisStoryDashboard.html"> <i class="fas fa-clipboard-medical"></i> Monitor the World's Health </a> -->
   <a class="glassButton" href="DataVisStoryDashboard.html"><i class="fas fa-clipboard-medical"></i><span>  Monitor the World's Health </span></a>
 </section>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script>
 <script src='https://cdn.plot.ly/plotly-2.16.1.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
@@ -906,7 +908,7 @@ var layout = {
     pad: 1
   },
   dragmode: false,
-  height:800,
+  height:700,
   annotations: [
     {
       xref: 'paper',
