@@ -21,7 +21,7 @@
   <img style="position:absolute; top: 4rem;;right:0" width="400" height="114" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
 </section>
-<section class="container">
+<section >
   <div class="row">
     <div class="AboutChart col-md" style="width:85%;">
   <h3>Global healthcare spending has increased
@@ -93,20 +93,16 @@
   </div>
  </div>
 </section>
-<section class="container">
-  <div class="row" style="justify-content: space-evenly;">
-    <div class="AboutChart col-md">
-      <h4>More than half the world has eradicated Malaria</h4>
-        <!-- <div class="chart" id="malaria"></div> -->
-    </div>
-    <div class="col-md-6">
+ <section class="row">
+  <div class="MotherInfantLoss AboutChart col-md" >
+    <h4>More than half the world has eradicated Malaria</h4>
+</div>
+    <div class="col-md-6" style="width:100%">
         <div class="chart" id='myDiv'></div>
       </div>
-</div>
 </section>
 <section style="display:flex; flex-direction:column;">
   <h3 style="text-align:center;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
-  <!-- <img class="maskB" alt="Baby Pram" src="/baby.svg"> -->
   <div class="row" style="display:flex; flex-direction:row; justify-content:space-around;">
 <div class="row" style="display: flex;">
   <div class=" maskB babyPercent" > </div>
@@ -117,7 +113,6 @@
   <div class="col"><span id="MMortality"></span> <p style="font-size:1rem;">Maternal deaths</p></div>
 </div>
   </div>
-  <!-- <p class="citation">*https://data.worldbank.org/indicator/SH.STA.MMRT</p> -->
 </section>
 <section class="container">
   <div class="row">
@@ -125,8 +120,8 @@
   <h4>But there's still more work to be done</h4>
 <p style="font-size:1.3rem;">Every hour, hundreds of families are devastated by the loss of an expectant mother or baby during childbirth</p>
 </div>
-<div class="col-md" >
-<div id="MotherBaby"></div>
+<div class="col-md">
+<div id="MotherBaby" style="width:100%"></div>
 </div>
 </div>
 </section>
@@ -370,33 +365,33 @@ var data = [{
 
 
 var layout = {
-      title: {
-      text:'Countries who have eradicated Malaria',
-      xref: 'paper',
-      // x: 0.05,
-    },
-      geo: {
-          showland: true,
-          showframe: false,
-          landcolor:"rgba(0,0,0,0)",  
-          bgcolor:"rgba(0,0,0,0)",
-          lakecolor:"rgba(0,0,0,0)",
-          oceancolor:"rgba(0,0,0,0)",
-          countrycolor: "black" ,
-          coastlinecolor:"#425566",
-          // projection: {
-          //     type: 'robinson'
-          // }
-      },
-     automargin:true,
-      font: {
-      family: 'Roboto Condensed, monospace',
-      color: '#BAE9E4'
-      },
-      width: 525,
-    
-      paper_bgcolor:"rgba(0,0,0,0)",
-        updatemenus: [{
+  geo: {
+    showframe: false,
+      showland: true,
+      landcolor:"#040F21",  
+      bgcolor:"rgba(0,0,0,0)",
+      lakecolor:"rgba(0,0,0,0)",
+      oceancolor:"rgba(0,0,0,0)",
+      // countrycolor: "black" ,
+        coastlinecolor:"#485976",
+  },
+  margin: {
+    l: 50,
+    r: 50,
+    b: 200,
+    t: 200,
+    pad: 1
+  },
+  dragmode: false,
+  height:700,
+  font: {
+        family: 'Roboto Condensed, monospace',
+        color: '#BAE9E4'
+        },
+  paper_bgcolor:"rgba(0,0,0,0)",
+  showscale: false,
+  // width:1000,
+  updatemenus: [{
           x: 0.1,
           y: 0,
           yanchor: "top",
@@ -457,12 +452,11 @@ var layout = {
             easing: "cubic-in-out"
           }
         }]
-    };
-    
+};
+var config = {responsive: true,displayModeBar: false}
 
-// var config = {responsive: true,displayModeBar: false}
 
-Plotly.newPlot('myDiv', data, layout, {responsive: true,displayModeBar: false}).then(function() {
+Plotly.newPlot('myDiv', data, layout, config).then(function() {
     Plotly.addFrames('myDiv', frames);
   });
 })
