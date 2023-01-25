@@ -68,6 +68,11 @@ html, body, section {
     color: #BAE9E4;
     background: #15294A;
   }
+
+  .stubborn{
+    width:100vw;
+    /* height:80vh; */
+  }
   
   .glassButton{
     background: #BAE9E4;
@@ -359,8 +364,16 @@ html, body, section {
 
   }
   
-  /* @media screen and (max-width:760px){
-    .AboutChart{
-    display:none;
+  @media screen and (max-width:760px){
+    .container{
+    width:90%;
     }
-  } */
+
+    .stubborn{
+      width:50vw;
+    }
+
+    .TotalLives{
+      scroll-snap-type:none;
+    }
+  }

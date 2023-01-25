@@ -18,11 +18,11 @@
 <div class="container">
 <section style="display:flex; flex-direction:column;">
   <h1>Global Healthcare has come a long way in 10 years</h1>
-  <img style="position:absolute; top:0;right:0" width="400" height="114" src="WGS-summit-logo.png" alt="World Government Summit Logo">
+  <img style="position:absolute; top: 4rem;;right:0" width="400" height="114" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
 </section>
 <section class="container">
-  <div class="row">
+  <div class="row stubborn">
     <div class="AboutChart col-md">
   <h3>Global healthcare spending has increased
     </h3>
@@ -34,7 +34,7 @@
 </section>
 <section class="container" style=" padding-top: 5rem;display:flex; flex-direction: column;">
   <div  class="row" style="justify-content: center;">
-    <div class="col-sm-12" style="overflow:hidden;">
+    <div class="col-sm-12" style="overflow:hidden; width:80vw; height:80vh;">
         <div id="GHEGPD" style="margin-left:1rem;"></div>
     </div>
 </div>
@@ -710,7 +710,7 @@ Plotly.newPlot('AIDS', [{
       color: '#48998C'
     }
 }], {
-  width:500,
+  width:450,
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1200]},
 
@@ -915,7 +915,7 @@ var layout = {
     {
       xref: 'paper',
     yref: 'paper',
-    x: 0.7,
+    x: 0.8,
     xanchor: 'right',
     y: 1,
     xanchor: 'right',
@@ -936,7 +936,7 @@ var layout = {
     {
       xref: 'paper',
     yref: 'paper',
-    x: 0.3,
+    x: 0.2,
     xanchor: 'right',
     y: 1,
     yanchor: 'bottom',
@@ -1096,7 +1096,9 @@ Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
     // pad: 10
   // },
   dragmode: false,
-  height:650,
+  // height:650,
+  autosize: true,
+  // width: this.props.size.width,
   font: {
   family: 'Roboto Condensed, monospace',
   size: 18,
@@ -1122,7 +1124,7 @@ Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
 
       var config = {responsive: true,displayModeBar: false}
 
-      Plotly.newPlot("GHEGPD", data, layout,config,{showLink: false});
+      Plotly.newPlot("GHEGPD", data, layout,config);
 });
 </script>
 </body>
