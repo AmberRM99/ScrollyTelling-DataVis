@@ -22,14 +22,14 @@
 
 </section>
 <section class="container">
-  <div class="row stubborn">
-    <div class="AboutChart col-md">
+  <div class="row">
+    <div class="AboutChart col-md" style="width:85%;">
   <h3>Global healthcare spending has increased
     </h3>
   </div>
   <div class="col-md">
   <!-- <div id="chart"></div></h1> -->
-  <div id="GHE"></div>
+  <div style="width:85%; height:50%;" id="GHE"></div>
   </div>
 </section>
 <section class="container" style=" padding-top: 5rem;display:flex; flex-direction: column;">
@@ -98,8 +98,8 @@
   <div class="AboutChart col-md">
   <h4>More than half the world has eradicated Malaria</h4>
 </div>
-<div class="col-md">
-<div id='myDiv'></div>
+<div class="col-md" style=" width:50vw; height:50vh;">
+<div id='myDiv' ></div>
 </div>
 </div>
 </section>
@@ -120,11 +120,11 @@
 </section>
 <section class="container">
   <div class="row">
-  <div class="MotherInfantLoss AboutChart col-md">
+  <div class="MotherInfantLoss AboutChart col-md" >
   <h4>But there's still more work to be done</h4>
 <p style="font-size:1.3rem;">Every hour, hundreds of families are devastated by the loss of an expectant mother or baby during childbirth</p>
 </div>
-<div class="col-md">
+<div class="col-md" >
 <div id="MotherBaby"></div>
 </div>
 </div>
@@ -710,7 +710,7 @@ Plotly.newPlot('AIDS', [{
       color: '#48998C'
     }
 }], {
-  width:450,
+  // width:450,
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1200]},
 
