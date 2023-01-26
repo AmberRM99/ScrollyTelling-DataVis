@@ -156,11 +156,14 @@ html, body, section {
   }
   
   .MotherInfantLoss{
-      display: flex;
+      /* display: flex;
       flex-direction: column;
       /* padding: 0 27px; */
-      width: 30%;
-      margin-right: 1.5rem;
+      /* width: 30%;
+      margin-right: 1.5rem; */ 
+      align-items: center;
+      position: relative;
+      top: 5rem;
   }
   
   .personCount{
@@ -378,5 +381,8 @@ html, body, section {
 
     .TotalLives{
       scroll-snap-type:none;
+    }
+    .annotation-text{
+      display:none;
     }
   }
