@@ -15,9 +15,9 @@ html, body, section {
     margin-top:1rem;
   }
 
-  .geolayer{
+  /* .geolayer{
     transform: scale(1.2)translateX(-84px)translateY(-49px);
-  }
+  } */
   
   .AboutChart p{
     font-size:1rem;
@@ -71,7 +71,6 @@ html, body, section {
 
   .stubborn{
     width:100vw;
-    /* height:80vh; */
   }
   
   .glassButton{
@@ -132,8 +131,8 @@ html, body, section {
   
   .babyPercent{
     background-image: linear-gradient(0deg, #48998C 70%, #48998c4a 72%);
-     
   }
+
   .babyPercent, .motherPercent{
     width: 15em;
     height: 15em;
@@ -218,6 +217,11 @@ html, body, section {
     content: counter(Mcount) ;
     animation: counterMMort 3s ease-out 1 alternate;
     counter-reset: Mcount 295000;
+  }
+
+  .rotateCol{
+    display:flex;
+    flex-direction:row;
   }
   
   @keyframes counter {
@@ -367,6 +371,9 @@ html, body, section {
       align-items: center;
       align-content: center;
       }
+      .rotateCol{
+        flex-direction:column
+      }
 
   }
   
@@ -381,8 +388,5 @@ html, body, section {
 
     .TotalLives{
       scroll-snap-type:none;
-    }
-    .annotation-text{
-      display:none;
     }
   }
