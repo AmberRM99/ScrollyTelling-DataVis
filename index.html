@@ -97,7 +97,7 @@
   <div class="MotherInfantLoss AboutChart col-md" >
     <h4>More than half the world has eradicated Malaria</h4>
 </div>
-    <div class="col-md-6" style="width:100%">
+    <div class="col-md-8" style="width:100%">
         <div class="chart" id='myDiv'></div>
       </div>
 </section>
@@ -120,7 +120,7 @@
   <h4>But there's still more work to be done</h4>
 <p style="font-size:1.3rem;">Every hour, hundreds of families are devastated by the loss of an expectant mother or baby during childbirth</p>
 </div>
-<div class="col-md">
+<div class="col-md-8">
 <div id="MotherBaby" style="width:100%"></div>
 </div>
 </div>
@@ -366,14 +366,14 @@ var data = [{
 
 var layout = {
   geo: {
-    showframe: false,
       showland: true,
-      landcolor:"#040F21",  
-      bgcolor:"rgba(0,0,0,0)",
-      lakecolor:"rgba(0,0,0,0)",
-      oceancolor:"rgba(0,0,0,0)",
-      // countrycolor: "black" ,
-        coastlinecolor:"#485976",
+      showframe: false,
+          landcolor:"rgba(0,0,0,0)",  
+          bgcolor:"rgba(0,0,0,0)",
+          lakecolor:"rgba(0,0,0,0)",
+          oceancolor:"rgba(0,0,0,0)",
+          countrycolor: "black" ,
+          coastlinecolor:"#425566",
   },
   margin: {
     l: 50,
@@ -383,7 +383,7 @@ var layout = {
     pad: 1
   },
   dragmode: false,
-  height:700,
+  height:600,
   font: {
         family: 'Roboto Condensed, monospace',
         color: '#BAE9E4'
@@ -460,6 +460,12 @@ Plotly.newPlot('myDiv', data, layout, config).then(function() {
     Plotly.addFrames('myDiv', frames);
   });
 })
+window.onscroll = function(){
+if ($('#myDiv').isInViewport()) {
+    Plotly.animate('myDiv', frames);
+    }
+}
+
 
 </script>
 
@@ -905,14 +911,14 @@ var layout = {
     pad: 1
   },
   dragmode: false,
-  height:700,
+  height:600,
   annotations: [
     {
       xref: 'paper',
     yref: 'paper',
     x: 0.8,
     xanchor: 'right',
-    y: 1,
+    y: 1.3,
     xanchor: 'right',
     yanchor: 'bottom',
       text: 'Maternal deaths',
@@ -933,7 +939,7 @@ var layout = {
     yref: 'paper',
     x: 0.2,
     xanchor: 'right',
-    y: 1,
+    y: 1.3,
     yanchor: 'bottom',
       text: 'Infant deaths',
       showarrow: false,
@@ -965,34 +971,34 @@ var layout = {
         direction: "left",
         type: "buttons",
         pad: {"t": 87, "r": 10},
-        buttons: [{
-          method: "animate",
-          args: [null, {
-            fromcurrent: true,
-            transition: {
-              duration: 1,
-            },
-            frame: {
-              duration: 0
-            }
-          }],
-          label: "Play"
-        }, {
-          method: "animate",
-          args: [   
-            [null],
-            {
-              mode: "immediate",
-              transition: {
-                duration: 0
-              },
-              frame: {
-                duration: 0
-              }
-            }
-          ],
-          label: "Pause"
-        }]
+        // buttons: [{
+        //   method: "animate",
+        //   args: [null, {
+        //     fromcurrent: true,
+        //     transition: {
+        //       duration: 1,
+        //     },
+        //     frame: {
+        //       duration: 0
+        //     }
+        //   }],
+        //   label: "Play"
+        // }, {
+        //   method: "animate",
+        //   args: [   
+        //     [null],
+        //     {
+        //       mode: "immediate",
+        //       transition: {
+        //         duration: 0
+        //       },
+        //       frame: {
+        //         duration: 0
+        //       }
+        //     }
+        //   ],
+        //   label: "Pause"
+        // }]
       }],
       sliders: [{
         active: 0,
@@ -1023,6 +1029,8 @@ var config = {responsive: true,displayModeBar: false}
 
 Plotly.newPlot('MotherBaby', data, layout, config).then(function() {
     Plotly.addFrames('MotherBaby', frames);
+
+    Plotly.animate('MotherBaby', frames);
   });
 })
 
