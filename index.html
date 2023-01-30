@@ -21,7 +21,7 @@
   <img style="position:absolute; top: 4rem;;right:0" width="400" height="114" src="WGS-summit-logo.png" alt="World Government Summit Logo">
 
 </section>
-<section >
+<section class="largeScreen">
   <div class="container">
     <div style="text-align: center;">
     <div class="AboutChart col-md" style="width:85%;">
@@ -29,11 +29,22 @@
     </h3>
   </div>
   <div class="col-md">
-  <!-- <div id="chart"></div></h1> -->
   <div style="width:85%; height:50%;" id="GHE"></div>
   </div>
   </div>
 </section>
+
+<section class="smallScreen">
+  <div class="row">
+    <div class="AboutChart col-md" style="width:85%;">
+  <h3>Global healthcare spending has increased
+    </h3>
+  </div>
+  <div class="col-md">
+  <div style="width:85%; height:50%;" id="GHESmall"></div>
+  </div>
+</section>
+
 <section class="container" style=" padding-top: 5rem;display:flex; flex-direction: column;">
   <div  class="row" style="justify-content: center;">
     <div class="col-sm-12" style="overflow:hidden; width:80vw; height:80vh;">
@@ -733,6 +744,7 @@ Plotly.newPlot('AIDS', [{
       var config = {responsive: true}
   
   Plotly.newPlot('GHE', data, layout, config);
+  Plotly.newPlot('GHESmall', data, layout, config);
 
 </script>
 

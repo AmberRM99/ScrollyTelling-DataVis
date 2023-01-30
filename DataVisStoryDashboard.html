@@ -745,8 +745,8 @@ height:0;
 
 
 
-    d3.csv('/babymotherhour.csv', function(err, rows){
-      d3.csv('/dashboard_continent.csv', function(err2, rows2){
+    d3.csv('/babymotherhour_final.csv', function(err, rows){
+      d3.csv('/dashboard_final.csv', function(err2, rows2){
     function filter_and_unpack(rows, key, index) {
     return rows.slice(0, index).map(row => row[key])
     }
@@ -951,8 +951,8 @@ function getComboA(selectObject) {
   VARIABLE = value
 
 
-d3.csv('/babymotherhour.csv', function(err, rows){
-      d3.csv('/dashboard_continent (1).csv', function(err2, rows2){
+d3.csv('/babymotherhour_final.csv', function(err, rows){
+      d3.csv('/dashboard_final.csv', function(err2, rows2){
     function filter_and_unpack(rows, key, index) {
     return rows.slice(0, index).map(row => row[key])
     }
@@ -977,7 +977,7 @@ d3.csv('/babymotherhour.csv', function(err, rows){
         marker:{
           size:8,
           color:unpack(rows,"person"),
-          opacity:0.8,
+          // opacity:0.8,
           showscale: false,
         },
   },
@@ -985,8 +985,9 @@ d3.csv('/babymotherhour.csv', function(err, rows){
           type:"choropleth",
           locationmode: 'country names',
           locations:unpack(rows2,"indicator"),
-          // colorscale:[[0,"#3F2752"],[1,"#DDD1E9"]],
-          colorscale:[[0, "#CFD6E4"], [1, "#060F20"]],
+          colorscale:[[0,"25595199"], 
+        [1, "#F1FCFA99"]], 
+          // colorscale:[[0, "#060F2080"], [1, "#CFD6E480"]],
           z:unpack(rows2,VARIABLE),
           showscale:true,
           name: VARIABLE,
@@ -998,7 +999,7 @@ d3.csv('/babymotherhour.csv', function(err, rows){
     geo: {
         showframe: false,
         showland: true,
-        landcolor:"#040F21",  
+        landcolor:"rgba(0,0,0,0)",  
         bgcolor:"rgba(0,0,0,0)",
         lakecolor:"rgba(0,0,0,0)",
         oceancolor:"rgba(0,0,0,0)",
@@ -1061,8 +1062,8 @@ d3.csv('/babymotherhour.csv', function(err, rows){
   })
 })
 } else{
-  d3.csv('/babymotherhour.csv', function(err, rows){
-      d3.csv('/dashboard_continent.csv', function(err2, rows2){
+  d3.csv('/babymotherhour_final.csv', function(err, rows){
+      d3.csv('/dashboard_final.csv', function(err2, rows2){
     function filter_and_unpack(rows, key, index) {
     return rows.slice(0, index).map(row => row[key])
     }
@@ -1327,7 +1328,7 @@ d3.csv('/babymotherhour.csv', function(err, rows){
       
       var layout = {
         // height: 400,
-        title: 'Average Age',
+        title: 'Age Distribution',
           yaxis: {range: [0, 100]},
         
             plot_bgcolor:"rgba(0,0,0,0)",
@@ -1393,7 +1394,7 @@ d3.csv('/babymotherhour.csv', function(err, rows){
           dragmode: false,
     font: {
     family: 'Roboto Condensed, monospace',
-    size: 18,
+    // size: 18,
     color: '#BAE9E4'
     },
           title: 'Global Population',
