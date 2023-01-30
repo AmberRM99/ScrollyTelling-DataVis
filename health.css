@@ -325,6 +325,15 @@ html, body, section {
       counter-set: Bcount 27;
     }
   }
+
+  #ghe.main-svg{
+    transform:scale(1.5);
+  }
+  /* @media screen and (min-width:1000px){ */
+    .js-plotly-plot .plotly svg {
+      overflow: visible;
+  }
+  /* } */
   
   @media screen and (max-width:1090px){
     /* h1{
