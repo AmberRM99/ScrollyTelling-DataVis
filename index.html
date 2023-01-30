@@ -22,7 +22,8 @@
 
 </section>
 <section >
-  <div class="row">
+  <div class="container">
+    <div style="text-align: center;">
     <div class="AboutChart col-md" style="width:85%;">
   <h3>Global healthcare spending has increased
     </h3>
@@ -30,6 +31,7 @@
   <div class="col-md">
   <!-- <div id="chart"></div></h1> -->
   <div style="width:85%; height:50%;" id="GHE"></div>
+  </div>
   </div>
 </section>
 <section class="container" style=" padding-top: 5rem;display:flex; flex-direction: column;">
@@ -118,7 +120,7 @@
 </div>
 </section> -->
 <section style="display:flex; flex-direction:column;">
-  <h3 style="text-align:center;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
+  <h3 style="text-align:center;margin-bottom: 2rem;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
   <div class="row" style="display:flex; flex-direction:row; justify-content:space-around;">
 <div class="row" style="display: flex;">
   <div class=" maskB babyPercent" > </div>
@@ -684,51 +686,53 @@ Plotly.newPlot('AIDS', [{
 </script>
 
 <script>
-  Plotly.newPlot('GHE', [{
-  x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
-  y: [874,	912,	986,	996,	1012,	1035,	994,	1016,	1057,	1103,	1122],
-  type: 'bar',
+    var trace1 = {
+      x: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
+      y: [874,	912,	986,	996,	1012,	1035,	994,	1016,	1057,	1103,	1122],
+    type: 'bar',
     marker: {
       color: '#48998C'
     }
-}], {
-   width:350,
-  xaxis: {range: [2008, 2022]},
-  yaxis: {range: [0, 1200]},
-
-    plot_bgcolor:"rgba(0,0,0,0)",
-    paper_bgcolor:"rgba(0,0,0,0)",
-    yaxis: {
-      tickcolor: "rgba(0,0,0,0)",
-      tickwidth: 15,
-      
-      gridcolor: "rgba(0,0,0,0)",
-      gridwidth: 15,
-      
-      zerolinecolor: "rgba(0,0,0,0)",
-      zerolinewidth: 2,
-      title: {
-      text: 'Spending Per Capita ($)',
-      font: {
-        size: 16,
-        color:'#BAE9E4'
-      },
-      // pad: {t: 50, b: 10},
-      }
-    },
-    xaxis: {
-      tickcolor: "rgba(0,0,0,0)",
-      tickwidth: 50,
-      
-      gridcolor: "rgba(0,0,0,0)",
-      gridwidth: 2,      
-    },
-     font: {
-  family: 'Roboto Condensed, monospace',
-  size: 18,
-  color: '#fff'
-  },
-})
+  };
+  
+  var data = [trace1];
+  
+  var layout = {
+        title: 'Global Health Expenditure',
+        xaxis: {range: [2008, 2022]},
+          yaxis: {range: [0, 1787]},
+            plot_bgcolor:"rgba(0,0,0,0)",
+            paper_bgcolor:"rgba(0,0,0,0)",
+            yaxis: {
+              tickcolor: "rgba(0,0,0,0)",
+              tickwidth: 15,
+              
+              gridcolor: "rgba(0,0,0,0)",
+              gridwidth: 15,
+              
+              zerolinecolor: "rgba(0,0,0,0)",
+              zerolinewidth: 2,
+              title: {
+                 text: 'Spending Per Capita ($)',
+              } 
+            },
+            xaxis: {
+              tickcolor: "rgba(0,0,0,0)",
+              tickwidth: 50,
+              
+              gridcolor: "rgba(0,0,0,0)",
+              gridwidth: 2,      
+            },
+            automargin:true,
+            font: {
+          family: 'Roboto Condensed, monospace',
+          color: '#BAE9E4'
+          },
+      };
+  
+      var config = {responsive: true}
+  
+  Plotly.newPlot('GHE', data, layout, config);
 
 </script>
 

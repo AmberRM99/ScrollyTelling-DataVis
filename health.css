@@ -15,19 +15,22 @@ html, body, section {
     margin-top:1rem;
   }
 
-  /* .geolayer{
+  .geolayer{
     transform: scale(1.2)translateX(-84px)translateY(-49px);
-  } */
+  }
   
   .AboutChart p{
     font-size:1rem;
     /* padding: 0 1.5rem; */
   }
 
-  .col-md{
+  /* .col-md{
     margin:auto
   }
-  
+   */
+   .row{
+    align-items: center;
+   }
   .TotalLives{
     background-color:#15294A;
     padding:0;
@@ -336,6 +339,9 @@ html, body, section {
   /* } */
   
   @media screen and (max-width:1090px){
+    .geolayer{
+      transform:unset;
+    }
     /* h1{
       font-size: 1em;
     }
