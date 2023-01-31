@@ -133,7 +133,7 @@
 <section style="display:flex; flex-direction:column;">
   <h3 style="text-align:center;margin-bottom: 2rem;">More pregnancies end in a healthy baby and mother today compared to 2009</h3>
   <div class="row" style="display:flex; flex-direction:row; justify-content:space-around;">
-<div class="row" style="display: flex;">
+<div class="row" style="display: flex;margin: 0 2rem;">
   <div class=" maskB babyPercent" > </div>
   <div class="col"><span id="BMortality"></span> <p style="font-size:1rem;">Infant Mortality Rate</p></div>
 </div>
@@ -254,7 +254,7 @@ $(window).on('resize scroll', function() {
     } else{
       $('#livesFigure').removeClass('livesSaved')
     }
-    if($('#totalLives').isInViewport()){
+    if($('#MalariaPeople').isInViewport()){
       if($('.peopleImg').length === 0){
       let Malariatotal = 26;
       var MdocFrag = document.createDocumentFragment();
@@ -615,7 +615,7 @@ Plotly.newPlot('AIDS', [{
 }], {
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1787]},
-
+automargin:true,
     plot_bgcolor:"rgba(0,0,0,0)",
     paper_bgcolor:"rgba(0,0,0,0)",
     yaxis: {
@@ -710,6 +710,7 @@ Plotly.newPlot('AIDS', [{
   
   var layout = {
         title: 'Global Health Expenditure',
+        automargin:true,
         xaxis: {range: [2008, 2022]},
           yaxis: {range: [0, 1787]},
             plot_bgcolor:"rgba(0,0,0,0)",
@@ -761,7 +762,7 @@ Plotly.newPlot('AIDS', [{
 }], {
   xaxis: {range: [2008, 2022]},
   yaxis: {range: [0, 1787]},
-
+automargin:true,
     plot_bgcolor:"rgba(0,0,0,0)",
     paper_bgcolor:"rgba(0,0,0,0)",
     yaxis: {
